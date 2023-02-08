@@ -3,7 +3,7 @@ body{
 }
 .login__container{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
 }
 .login__image{
     width:40%;
@@ -16,7 +16,8 @@ body{
     
 }
 .login-img{
-    width:40%;
+    /* width:40%; */
+    position: absolute;
     max-width:100%;
     height: auto;
     padding:2rem;   
@@ -37,7 +38,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-between; 
     position:absolute;
     top:50%;
     left:65%;
@@ -64,11 +65,19 @@ h2{
 } */
 
 
-label{
+/* label{
    padding: 0.25rem;
    margin-bottom: .5rem;
    display: inline-block;
 
+} */
+.username,.password{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: 0.5rem; */
+    /* max-width: fit-content; */
+    /* padding:10px; */
 }
 
 input,select{
@@ -114,8 +123,8 @@ input,select{
     color:#223843;
 }
 
-@media screen and (max-width:600px) {
-    .login__container{
+@media (max-width:600px) {
+    .login__image{
         display: flex;
         flex-direction: column;
     }
