@@ -18,14 +18,15 @@ const handleSubmit=async(e)=>{
   try{
      await axios.post('https://queryus-production.up.railway.app/login',{
       username:credentials.username,
-      password:credentials.password
+      password:credentials.password,
      });
-     navigate('/');
+    navigate('/');
+
 
 }catch(error){
-  console.log(new Error(error));
+  console.log({"message":"Bad request"});
 }
-}
+};
 
   
   

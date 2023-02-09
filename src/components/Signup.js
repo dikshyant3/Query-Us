@@ -11,7 +11,7 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
-    cpassword: "",
+    confirmPassword: "",
   });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -22,13 +22,13 @@ const Signup = () => {
     
 
     try {
-      await axios.post("https://queryus-production.up.railway.app/register", {
+      await axios.post("https://queryus-production.up.railway.app/user/register", {
         firstName: credentials.firstName,
         middleName: credentials.middleName,
         lastName: credentials.lastName,
         email: credentials.email,
         password: credentials.password,
-        cpassword: credentials.cpassword,
+        confirmPassword: credentials.confirmPassword,
       });
       navigate("/login");
     } catch (error) {
@@ -75,7 +75,7 @@ const Signup = () => {
           <input type="password" name="password" value={credentials.password} onChange={handleChange}/>
 
           <label htmlFor="Confirm Password">Confirm Password</label>
-          <input type="password" name="cpassword" value={credentials.cpassword} onChange={handleChange}/>
+          <input type="password" name="confirmPassword" value={credentials.confirmPassword} onChange={handleChange}/>
 
           <button>Create Account</button>
         </form>
