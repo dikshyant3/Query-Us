@@ -16,7 +16,7 @@ const handleChange=(e)=>{
 const handleSubmit=async(e)=>{
   e.preventDefault();
   try{
-     await axios.post('https://queryus-production.up.railway.app/login',{
+     await axios.post('https://queryus-production.up.railway.app/user/login',{
       username:credentials.username,
       password:credentials.password,
      });
