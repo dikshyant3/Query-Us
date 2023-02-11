@@ -1,10 +1,10 @@
 import "./App.css";
 import "./fonts/Helvetica-Font/Helvetica.css";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-// import Navbar from "./components/Navbar";
+import Home from "./components/Home/Home";
+// import Questions from "./components/Questions/Questions";
 
 function App() {
   return (
@@ -19,6 +19,10 @@ function App() {
           <Route path="/register" element={<Signup />} />
 
           <Route path="/login" element={<Login />} />
+
+          {/* <Route path="/questions" element={<Questions />} /> */}
+
+
         </Routes>
       </BrowserRouter>
     </div>

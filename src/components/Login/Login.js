@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 // import { Tab, Tabs } from "@mui/material";
-import image from "../images/login.png";
+import image from "../../images/login.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LockIcon from "@mui/icons-material/Lock";

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import Logo from '../images/Logo.png';
+import Logo from '../../images/Logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import NotificationsIcon from '@mui/icons-material/Notifications';

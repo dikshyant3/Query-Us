@@ -3,7 +3,7 @@ import "./Signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { Tab, Tabs } from "@mui/material";
-import image from "../images/signup.png";
+import image from "../../images/signup.png";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     firstName: "",

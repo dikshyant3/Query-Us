@@ -1,8 +1,8 @@
 import React from "react";
 import './Home.css';
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
-import Questions from "./Questions";
+import Sidebar from "../Sidebar/Sidebar";
+import Navbar from "../Navbar/Navbar";
+import Questions from "../Questions/Questions";
 
 
 

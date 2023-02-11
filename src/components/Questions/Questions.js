@@ -9,10 +9,6 @@ const Questions = () => {
     })
   }
   useEffect(() => {
-    
-    
-    
-  
     getAllQuestions();
   }, [])
   
