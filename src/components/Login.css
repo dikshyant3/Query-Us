@@ -32,7 +32,6 @@ body{
 
 } 
 
-
 .form__container{
     width:60%;
     display: flex;
@@ -71,25 +70,33 @@ h2{
    display: inline-block;
 
 } */
+
 .username,.password{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* margin: 0.5rem; */
-    /* max-width: fit-content; */
-    /* padding:10px; */
+  border-radius: 999px;
+  padding: 0 10px ;
+
+    /* border:1px solid rgb(255,255,255); */
+    background: #fff;
+    margin-bottom: 1rem;
 }
 
-input,select{
+input{
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 0.25rem .75rem;
   margin-bottom: 1.25rem;
-  background: #ffffff;
+  position: relative;
+  top:10px;
+  background: transparent;
   border: none;
   color: #000000;
   overflow: hidden;
+  outline-width: 0;
 }
+/* input::placeholder{
+    padding: 0 10px;
+} */
 .forgot-password{
     display:flex;
     position: absolute;

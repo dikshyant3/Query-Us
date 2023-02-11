@@ -16,59 +16,45 @@ body{
     height: auto;
     padding:2rem;   
 }
-.form__container{
-    
+.signupform__container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    position:absolute;
-    top:50%;
-    /* left:65%; */
-    transform: translate(-50%,-50%);
-    max-width:50%; 
-    gap:1.2rem;
-
-}
-/* .form__container form{
-    width:60%;
-} */
-h2{
-    display: flex;
-    flex-direction: column;
-}
-/* form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
     position:absolute;
     top:50%;
     left:65%;
     transform: translate(-50%,-50%);
-    width:60%;
+    max-width:85%; 
     gap:1.2rem;
+
+}
+/* 
+h2{
+    display: flex;
+    
+    flex-direction: column;
 } */
 
 
-label{
-   padding: 0.25rem;
+/* .label{
+   padding: 0.2rem;
    margin-bottom: 5rem;
 
-}
+} */
 
-input,select{
+.signupform__container input{
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 0.75rem;
+  border-radius: 999px;
   margin-bottom: 1.25rem;
   background: #ffffff;
   border: none;
   color: #000000;
   overflow: hidden;
 }
-button{
-    padding: 0.75rem 2rem;
+.signup-btn{
+    margin-top: .5rem;
+    padding: 0.75rem 1.5rem;
     background: #223843;
     color:#ffffff;
     font-weight: 600;
