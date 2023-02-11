@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Questions = () => {
   const getAllQuestions=async()=>{
-    const url="https://queryus-production.up.railway.app/";
+    const url="https://queryus-production.up.railway.app/question/all";
     await axios.get(url,{withCredentials:true}).then((res)=>{
       console.log(JSON.stringify(res));
     })

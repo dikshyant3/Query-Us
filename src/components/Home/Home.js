@@ -3,7 +3,7 @@ import './Home.css';
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import Questions from "../Questions/Questions";
-import AddQuestion from "../AddQuestion/AddQuestion";
+// import AddQuestion from "../AddQuestion/AddQuestion";
 
 
 
@@ -13,7 +13,7 @@ const Home=()=>{
       <Navbar/>
        <Sidebar/>
       <Questions/>
-      <AddQuestion/>
+      {/* <AddQuestion/> */}
     </>
  )
 }
