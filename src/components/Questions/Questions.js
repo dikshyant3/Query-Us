@@ -7,6 +7,15 @@ const Questions = () => {
     await axios.get(url,{withCredentials:true}).then((res)=>{
       console.log(JSON.stringify(res));
     })
+  //   const response=await fetch(url,{
+  //     method:"GET",
+  //     credentials:'same-origin',
+  //     headers:{
+  //       "content-type":"application/json"
+  //     }
+  // })
+  // const json=await response.json();
+  // console.log(json);
   }
   useEffect(() => {
     getAllQuestions();
