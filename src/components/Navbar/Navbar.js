@@ -21,13 +21,13 @@ const Navbar = () => {
                 </div>
                 <div className="navbar__right">
                     {/* Dark/Light Theme */}
-                    <DarkModeIcon style={{fill:'#fff'}}/>
+                    <DarkModeIcon style={{fill:'#fff',opacity:0.8}}/>
                     {/* Notification */}
-                    <NotificationsIcon style={{fill:'#fff'}}/>
+                    <NotificationsIcon style={{fill:'#fff',opacity:0.8}}/>
                     {/* Reputation */}
-                    <StarsIcon style={{fill:"#fff"}}/>
+                    <StarsIcon style={{fill:"#fff",opacity:0.8}}/>
                     {/* UserProfile */}
-                    <AccountCircleIcon style={{fill:"#fff"}}/>
+                    <AccountCircleIcon style={{fill:"#fff",opacity:0.8}}/>
                 </div>
             </div>
         

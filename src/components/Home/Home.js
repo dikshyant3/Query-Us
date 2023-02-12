@@ -11,7 +11,7 @@ const Home=()=>{
  return(
     <>
       <Navbar/>
-       <Sidebar/>
+      <Sidebar/>
       <Questions/>
       {/* <AddQuestion/> */}
     </>

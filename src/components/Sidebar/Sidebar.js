@@ -8,7 +8,9 @@ import QuestionAnswerSharpIcon from "@mui/icons-material/QuestionAnswerSharp";
 const Sidebar = () => {
   return (
     <div className="sidebar">
+      <Link to="/addquestion">
         <button className="sidebar-btn">Ask a Question</button>
+        </Link>
       <div className="sidebar-container">
         <div className="sidebar-options">
           <div className="sidebar-option">
