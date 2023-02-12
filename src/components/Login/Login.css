@@ -92,6 +92,7 @@ input{
   border: none;
   color: #000000;
   overflow: hidden;
+  outline: none;
   outline-width: 0;
 }
 /* input::placeholder{

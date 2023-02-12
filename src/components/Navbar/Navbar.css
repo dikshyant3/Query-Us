@@ -28,6 +28,7 @@
     position: relative;
     top:10px;
     border: none ;
+    outline: none;
     outline-width: 0;
     background: transparent;
     color:#fff;

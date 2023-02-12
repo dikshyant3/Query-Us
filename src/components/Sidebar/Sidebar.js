@@ -22,7 +22,7 @@ const Sidebar = () => {
             <Link to="/user">User Profile</Link>
           </div>
           <div className="sidebar-option">
-            <QuestionAnswerSharpIcon />
+            <QuestionAnswerSharpIcon style={{fill:'rgba(0,0,0,0.8)'}}/>
             <Link to="/questions">Questions</Link>
             {/* <div className="link">
               <p>New Questions</p>

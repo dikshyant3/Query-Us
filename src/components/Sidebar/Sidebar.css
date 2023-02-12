@@ -1,7 +1,7 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    margin:2.5rem 3rem;
+    height: 100%;
     /* flex:0.5; */
     max-width:200px;
     border-right:1px solid #38B0DC;
@@ -20,6 +20,8 @@
 .sidebar-container{
     display: flex;
     width: 100%;
+    margin:2.5rem 3rem;
+
 
 }
 .sidebar-options{
@@ -33,6 +35,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: .75rem;
+    padding-left:1rem;
     
 }
 .link{
@@ -57,7 +60,7 @@ a:hover{
 .sidebar-tags{
     display: flex;
     flex-direction: column;
-    margin-top:3rem;
+    margin:2.5rem 3rem;
     padding: 0 1.75rem;
     width: 100%;
 }
@@ -68,4 +71,7 @@ a:hover{
 .tags{
     display: flex;
     flex-direction: column ;
+}
+p{
+    margin-bottom: 1rem;
 }
