@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Questions.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Questions = () => {
   const [questions, setQuestions] = useState([]);
@@ -43,7 +44,9 @@ const Questions = () => {
             <div className="question-container-right">
               <div className="question-body">
                 <div className="question-title">
+                  <Link>
                   <p>{question.questionTitle}</p>
+                  </Link>
                 </div>
                 <div className="question-tags">
                   {question.tags.map((tag) => (

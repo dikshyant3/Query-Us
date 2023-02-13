@@ -45,6 +45,26 @@
     width:100%;
     flex-direction: column;
 }
-.questions-body {
-  /* margin-left:1.5rem; */
+.question-title{
+    display:flex;
+    margin-bottom:0.25rem;
+}
+.question-title > a{
+    color:#0000ff;
+    font-size:1.1rem;
+}
+.question-tags{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:0.5rem 1rem;
+}
+.author{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.author-details{
+    display: flex;
+    margin-left:3px;
 }
