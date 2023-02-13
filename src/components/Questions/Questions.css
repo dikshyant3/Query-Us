@@ -3,10 +3,14 @@
     width: 80%;
    
 }
-.questions__container{
+.questions-container{
     /* background: #fff; */
+    display: flex;
     width:100%;
     height:6rem;
     border-radius:0.5rem;
     padding: 1rem 7rem;
+}
+.questions-body{
+    margin-left:1.5rem;
 }

@@ -1,9 +1,9 @@
-.home{
+.home-container{
     display: flex;
     min-height: 85vh;
     min-width:fit-content;
 }
-.home-container{
+.home-body{
     display: flex;
     width: 100%;
     justify-content: center;

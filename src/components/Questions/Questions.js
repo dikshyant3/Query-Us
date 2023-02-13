@@ -20,21 +20,50 @@ const Questions = () => {
 
   return (
     <div className="questions">
-      <div className="questions__container">
-        <div className="card">
-          {questions.map((question) => (
-            <div key={question.id}>
-              <p>{question.questionTitle}</p>
-              <p>{question.views}</p>
-              <p>{question.voteCount}</p>
-              <p>{question.timeStamp}</p>
-              <p>{question.userId}</p>
-              <p>{question.answerCount}</p>
-              <p>{question.tags}</p>
+      <div className="card">
+        {questions.map((question) => (
+          <div className="questions-container">
+            <div className="question-container-left">
+              <div className="questions-stats">
+                <div className="question-stat">
+                  <p>
+                    {question.answerCount}
+                    <span>answers</span>
+                  </p>
+                </div>
+                <div className="question-stat">
+                  <p>
+                    {question.voteCount}
+                    <span>upvotes</span>
+                  </p>
+                </div>
+                <div className="question-stat">
+                  <p>
+                    {question.views}
+                    <span>views</span>
+                  </p>
+                </div>
               </div>
-            
-          ))}
-        </div>
+            </div>
+            <div className="questions-container-right">
+              <div className="questions-body">
+                <div className="question-title">
+                  <p>{question.questionTitle}</p>
+                </div>
+                <div className="questions-tags">
+                  <span className="tag">{question.tags[0]}</span>
+                  <span className="tag">{question.tags[1]}</span>
+                </div>
+                <div className="author">
+                  <span className="timestamp">{question.timestamp}</span>
+                  <div className="author-details">
+                    <p>{question.userId}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
