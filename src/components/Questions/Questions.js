@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Questions.css";
 import axios from "axios";
+import { Avatar } from '@mui/material';
 import { Link } from "react-router-dom";
 
 const Questions = () => {
@@ -54,14 +55,15 @@ const Questions = () => {
                   ))}
                 </div>
                 <div className="author">
-                  <span className="timestamp">
+                  <small className="timestamp">
                     {question.timestamp}
                     {/* {`${(question.timestamp).toLocaleDateString()}`} */}
 
                     {/* timestamp need to be converted in locale string */}
-                  </span>
+                  </small>
                   <div className="author-details">
                     {/* Avatar of user */}
+                    <Avatar/>
                     <p>{question.userId}</p>
                   </div>
                 </div>

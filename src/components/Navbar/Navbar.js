@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import StarsIcon from '@mui/icons-material/Stars';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Avatar } from '@mui/material';
 
 
 const Navbar = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
                     {/* Reputation */}
                     <StarsIcon style={{fill:"#fff",opacity:0.8}}/>
                     {/* UserProfile */}
-                    <AccountCircleIcon style={{fill:"#fff",opacity:0.8}}/>
+                    <Avatar sx={{width:24,height:24}}/>
                 </div>
             </div>
         
