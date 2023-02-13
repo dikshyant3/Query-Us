@@ -22,41 +22,43 @@ const Questions = () => {
     <div className="questions">
       <div className="card">
         {questions.map((question) => (
-          <div className="questions-container">
+          <div className="question-container" key={question.id}>
             <div className="question-container-left">
-              <div className="questions-stats">
+              <div className="question-stats">
                 <div className="question-stat">
-                  <p>
-                    {question.answerCount}
-                    <span>answers</span>
-                  </p>
+                  <p>{question.answerCount}</p>
+
+                  <span>answers</span>
                 </div>
                 <div className="question-stat">
-                  <p>
-                    {question.voteCount}
-                    <span>upvotes</span>
-                  </p>
+                  <p>{question.voteCount}</p>
+                  <span>upvotes</span>
                 </div>
                 <div className="question-stat">
-                  <p>
-                    {question.views}
-                    <span>views</span>
-                  </p>
+                  <p>{question.views}</p>
+                  <span>views</span>
                 </div>
               </div>
             </div>
-            <div className="questions-container-right">
-              <div className="questions-body">
+            <div className="question-container-right">
+              <div className="question-body">
                 <div className="question-title">
                   <p>{question.questionTitle}</p>
                 </div>
-                <div className="questions-tags">
-                  <span className="tag">{question.tags[0]}</span>
-                  <span className="tag">{question.tags[1]}</span>
+                <div className="question-tags">
+                  {question.tags.map((tag) => (
+                    <span className="tag">{tag}</span>
+                  ))}
                 </div>
                 <div className="author">
-                  <span className="timestamp">{question.timestamp}</span>
+                  <span className="timestamp">
+                    {question.timestamp}
+                    {/* {`${(question.timestamp).toLocaleDateString()}`} */}
+
+                    {/* timestamp need to be converted in locale string */}
+                  </span>
                   <div className="author-details">
+                    {/* Avatar of user */}
                     <p>{question.userId}</p>
                   </div>
                 </div>
