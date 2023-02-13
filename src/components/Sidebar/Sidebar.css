@@ -20,7 +20,8 @@
 .sidebar-container {
   display: flex;
   width: 100%;
-  margin: 2.5rem 3rem;
+  margin: 2.5rem 1rem;
+  align-items: center;
 }
 .sidebar-options {
   display: flex;
@@ -34,6 +35,10 @@
   flex-direction: row;
   margin-bottom: 0.75rem;
   padding-left: 1rem;
+  align-items: center;
+}
+.sidebar-option a{
+    margin-left: .25rem;
 }
 .link {
   display: flex;
@@ -56,7 +61,7 @@ a:hover {
 .sidebar-tags {
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 3rem;
+  margin: 2.5rem 1.5rem;
   padding: 0 1.75rem;
   width: 100%;
 }
