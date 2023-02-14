@@ -53,18 +53,29 @@ const QuestionItem = () => {
                       <p>{question.views}</p>
                       <span>views</span>
                     </div>
-                    <div className="author">
-                      <small className="timestamp">
-                        {question.timestamp}
-                        {/* {`${(question.timestamp).toLocaleDateString()}`} */}
+                  </div>
 
-                        {/* timestamp need to be converted in locale string */}
-                      </small>
-                      <div className="author-details">
-                        {/* Avatar of user */}
-                        <Avatar />
-                        <p>{question.userId}</p>
+                  <div className="author">
+                    <div className="timestamp">
+                      <div className="timestamp-date">
+                        <small>
+                          {question.timestamp[0] +
+                            "/" +
+                            question.timestamp[1] +
+                            "/" +
+                            question.timestamp[2]}
+                        </small>
+                        at 
                       </div>
+                      <div className="timestamp-time">
+                        {question.timestamp[3] + ":" + question.timestamp[4]}
+                      </div>
+                    </div>
+
+                    <div className="author-details">
+                      {/* Avatar of user */}
+                      <Avatar />
+                      <p>{question.userId}</p>
                     </div>
                   </div>
                 </div>
