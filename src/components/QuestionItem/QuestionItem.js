@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 const QuestionItem = () => {
   const [questions, setQuestions] = useState([]);
+  // const[currentPage,setCurrentPage]=useState(1);
+
   const getAllQuestions = async () => {
     const url = "https://queryus-production.up.railway.app/question/all";
     try {
@@ -25,6 +27,16 @@ const QuestionItem = () => {
       <div className="card">
         {questions.map((question) => (
           <div className="question-container" key={question.id}>
+            <div className="question-container-left">
+              <div className="question-sidebar">
+                <div className="author">
+                  <div className="author-details">
+                    <Avatar />
+                    <p>{question.userId}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="question-tags">
               {question.tags.map((tag) => (
                 <span className="tag">{tag}</span>
@@ -65,17 +77,11 @@ const QuestionItem = () => {
                             "/" +
                             question.timestamp[2]}
                         </small>
-                        at 
+                        at
                       </div>
                       <div className="timestamp-time">
                         {question.timestamp[3] + ":" + question.timestamp[4]}
                       </div>
-                    </div>
-
-                    <div className="author-details">
-                      {/* Avatar of user */}
-                      <Avatar />
-                      <p>{question.userId}</p>
                     </div>
                   </div>
                 </div>

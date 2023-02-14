@@ -4,7 +4,7 @@ import QuestionItem from "../QuestionItem/QuestionItem";
 
 const Questions = () => {
   return(<div className="questions">
-    <QuestionItem/>
+    <QuestionItem />
   </div>)
 };
 
