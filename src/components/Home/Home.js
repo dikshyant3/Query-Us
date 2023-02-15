@@ -3,7 +3,7 @@ import "./Home.css";
 import Sidebar from "../Sidebar/Sidebar";
 import Questions from "../Questions/Questions";
 import Navbar from "../Navbar/Navbar";
-// import AddQuestion from "../AddQuestion/AddQuestion";
+
 
 const Home = () => {
   return (
@@ -14,7 +14,6 @@ const Home = () => {
         <div className="home-body">
           <Sidebar />
           <Questions />
-          {/* <AddQuestion/> */}
         </div>
       </div>
     </>

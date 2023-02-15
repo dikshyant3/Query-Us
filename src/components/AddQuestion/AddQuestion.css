@@ -1,0 +1,32 @@
+.add-questions{
+    display: flex;
+    width:100%;
+}
+.add-questions-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin:2rem;
+}
+.header{
+    margin: 2rem;
+    font: 800;
+}
+.questions__container{
+    display: flex;
+}
+.question-options{
+    display: flex;
+}
+.question-option{
+    display: flex;
+    align-items: center;
+}
+.questionTitle{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    background: #fff;
+
+}
