@@ -1,0 +1,26 @@
+.ql-toolbar {
+    width: 600px !important
+  }
+  .ql-container {
+    /* margin:1rem 4rem; */
+    width: 600px !important;
+    height: auto !important;
+  }
+  .ql-editor {
+    width: 100% !important;
+    height: 200px !important;
+    overflow-y: scroll;
+    resize: vertical;
+  }
+  .ql-container {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    background: #fefcfc;
+  }
+  .ql-snow.ql-toolbar {
+    display: block;
+    background: #eaecec;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
+  

@@ -1,10 +1,9 @@
-import React,{useState} from "react";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React from "react";
+import TextEditor from "./TextEditor";
 
 const AddQuestion = () => {
   //   const [title, setTitle] = useState("");
-  const [value, setValue] = useState(''); 
+  // const [value, setValue] = useState(''); 
   return (
     <div className="add-questions">
       <div className="add-question-container">
@@ -25,7 +24,12 @@ const AddQuestion = () => {
                 <small>
                   Include all the details you want someone to answer
                 </small>
-                <ReactQuill theme="snow" value={value} onChange={setValue}/>
+                 <TextEditor/>
+              </div>
+              <div className="add-tags">
+                <h3>Tags</h3>
+                <small>Add upto three tags to describe what your question is about.</small>
+                <input type="text" />
               </div>
             </div>
           </div>
