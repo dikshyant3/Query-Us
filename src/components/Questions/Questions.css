@@ -1,4 +1,22 @@
 .questions {
   display: flex;
+  flex-direction: column;
   width: 100%;
+}
+.pagination-container{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ margin: 1rem 1rem 1rem 0;
+ align-items: center;
+}
+
+button{
+  background:skyblue;
+  color:#fff;
+  font-weight: 600;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+
 }
