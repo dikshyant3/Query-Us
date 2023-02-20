@@ -4,11 +4,11 @@ import { Avatar } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Link } from "react-router-dom";
 
-const QuestionItem = ({ question }) => {
+const QuestionItem = ({ question}) => {
   return (
     <>
-      <div className="card">
-        <div className="question-container" key={question.id}>
+      <div className="card" key={question.id}>
+        <div className="question-container">
           <div className="question-container-left">
             <div className="question-sidebar">
               <div className="sidebar-content">
