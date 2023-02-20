@@ -8,42 +8,7 @@ const PAGE_SIZE = 10;
 const Questions = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [questions, setQuestions] = useState([]);
-  const totalPages = Math.ceil(questions.length / PAGE_SIZE);
-  const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const endIndex = startIndex + PAGE_SIZE;
-  const currentContent = questions.slice(startIndex, endIndex);
-
-  const handlePrevPage = async() => {
-    
-
-const url = `https://queryus-production.up.railway.app/question/all?pageNo=${currentPage}`;
-try {
-  const res = await axios.get(url, { withCredentials: true });
-  console.log(res.data);
-  setQuestions(res.data);
-} catch (error) {
-  console.log(error);
-}
-if(currentPage>1){
-  setCurrentPage(currentPage+1);
-  console.log(currentContent());
-}
-  };
-
-  const handleNextPage = async() => {
-    const url = `https://queryus-production.up.railway.app/question/all?pageNo=${currentPage}`;
-
-    try {
-      const res = await axios.get(url, { withCredentials: true });
-      console.log(res.data);
-      setQuestions(res.data);
-    } catch (error) {
-      console.log(error);
-    } 
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,12 +17,45 @@ if(currentPage>1){
         const res = await axios.get(url, { withCredentials: true });
         console.log(res.data);
         setQuestions(res.data);
+        setTotalPages(Math.ceil(res.data.length / PAGE_SIZE));
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, [currentPage]);
+
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const endIndex = startIndex + PAGE_SIZE;
+  const currentContent = questions.slice(startIndex, endIndex);
+
+  const handlePrevPage = async () => {
+    const url = `https://queryus-production.up.railway.app/question/all?pageNo=${
+      currentPage - 1
+    }`;
+    try {
+      const res = await axios.get(url, { withCredentials: true });
+      console.log(res.data);
+      setQuestions(res.data);
+      setCurrentPage(currentPage - 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleNextPage = async () => {
+    const url = `https://queryus-production.up.railway.app/question/all?pageNo=${
+      currentPage + 1
+    }`;
+    try {
+      const res = await axios.get(url, { withCredentials: true });
+      console.log(res.data);
+      setQuestions(res.data);
+      setCurrentPage(currentPage + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="questions">
@@ -68,6 +66,7 @@ if(currentPage>1){
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </button>
+        <div>{`Page ${currentPage} of ${totalPages}`}</div>
         <button onClick={handleNextPage} disabled={currentPage >= totalPages}>
           Next
         </button>
