@@ -1,9 +1,10 @@
 import React from "react";
 import TextEditor from "./TextEditor";
+import "react-quill/dist/quill.core.css";
 
 const AddQuestion = () => {
   //   const [title, setTitle] = useState("");
-  // const [value, setValue] = useState(''); 
+  // const [value, setValue] = useState('');
   return (
     <div className="add-questions">
       <div className="add-question-container">
@@ -24,11 +25,15 @@ const AddQuestion = () => {
                 <small>
                   Include all the details you want someone to answer
                 </small>
-                 <TextEditor/>
+                <div className="ql-editor">
+                  <TextEditor />
+                </div>
               </div>
               <div className="add-tags">
                 <h3>Tags</h3>
-                <small>Add upto three tags to describe what your question is about.</small>
+                <small>
+                  Add upto three tags to describe what your question is about.
+                </small>
                 <input type="text" />
               </div>
             </div>

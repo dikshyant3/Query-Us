@@ -57,11 +57,11 @@ const Questions = () => {
         <QuestionItem key={question.id} question={question} />
       ))}
       <div className="pagination-container">
-        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+        <button className="btn-paginate" onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <div>{`Page ${currentPage}`}</div>
-        <button onClick={handleNextPage} disabled={questions.length<10} >
+        <div className="pageNo">{`Page ${currentPage}`}</div>
+        <button className="btn-paginate" onClick={handleNextPage} disabled={questions.length<10} >
           Next
         </button>
       </div>

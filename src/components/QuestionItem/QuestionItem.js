@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Link } from "react-router-dom";
 
-const QuestionItem = ({ question}) => {
+const QuestionItem = ({ question }) => {
   return (
     <>
       <div className="card" key={question.id}>
@@ -61,7 +61,13 @@ const QuestionItem = ({ question}) => {
                   <p>{question.views}</p>
                   <span>views</span>
                 </div>
+                <div className="answer-button">
+                <Link to="/answersPage">
+                  <button className="btn-answer">Answer</button>
+                </Link>
               </div>
+              </div>
+              
             </div>
           </div>
         </div>
