@@ -5,18 +5,20 @@
     /* margin:1rem 4rem; */
     width: 600px !important;
     height: auto !important;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    background: #fefcfc;
   }
   .ql-editor {
+    display: flex;
+    /* position: relative; */
+    /* align-items: center; */
     width: 100% !important;
     height: 200px !important;
     overflow-y: scroll;
     resize: vertical;
   }
-  .ql-container {
-    border-bottom-left-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-    background: #fefcfc;
-  }
+  
   .ql-snow.ql-toolbar {
     display: block;
     background: #eaecec;

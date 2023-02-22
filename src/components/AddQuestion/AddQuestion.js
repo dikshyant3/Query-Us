@@ -1,4 +1,5 @@
 import React from "react";
+import "./AddQuestion.css";
 import TextEditor from "./TextEditor";
 import "react-quill/dist/quill.core.css";
 
@@ -25,10 +26,12 @@ const AddQuestion = () => {
                 <small>
                   Include all the details you want someone to answer
                 </small>
-                <div className="ql-editor">
+                <div className="textEditor">
                   <TextEditor />
                 </div>
               </div>
+            </div>
+            <div className="question-option">
               <div className="add-tags">
                 <h3>Tags</h3>
                 <small>
@@ -37,7 +40,12 @@ const AddQuestion = () => {
                 <input type="text" />
               </div>
             </div>
+            <div className="post-buttons">
+            <button className="btn-texteditor">Post Question</button>
+            <button className="btn-discard">Cancel</button>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>

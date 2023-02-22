@@ -33,6 +33,8 @@
 .question-container-right {
     display: flex;
     flex-direction: column;
+    
+
   }
   .question-container-top{
     display: flex;
@@ -65,6 +67,8 @@
     display: flex;
     width: 100%;
     flex-direction: column;
+
+
   }
   .question-title {
     display: flex;
@@ -78,6 +82,8 @@
   .question-stats {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    flex: 1 1;
     /* margin-right: 2rem; */
     /* align-items: center; */
     padding: 5px 10px;
