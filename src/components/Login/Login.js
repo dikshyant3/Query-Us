@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LockIcon from "@mui/icons-material/Lock";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { toast } from "react-toastify";
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -25,8 +26,10 @@ const Login = () => {
         password: credentials.password,
         
       },{withCredentials:true});
+      toast.success("Login successfull!")
       navigate("/");
     } catch (error) {
+      toast.error("Login failed!")
       console.log({ message: "Bad request" });
     }
   };

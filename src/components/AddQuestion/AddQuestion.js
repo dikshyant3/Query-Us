@@ -17,7 +17,7 @@ const AddQuestion = () => {
             <div className="question-option">
               <div className="questionTitle">
                 <h3>Title</h3>
-                <input type="text" />
+                <input className="addText" type="text" />
               </div>
             </div>
             <div className="question-option">
@@ -37,7 +37,7 @@ const AddQuestion = () => {
                 <small>
                   Add upto three tags to describe what your question is about.
                 </small>
-                <input type="text" />
+                <input className="addText" type="text" />
               </div>
             </div>
             <div className="post-buttons">

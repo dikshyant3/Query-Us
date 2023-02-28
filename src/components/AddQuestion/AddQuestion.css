@@ -11,6 +11,7 @@
 .header {
   margin: 2rem;
   font-weight: 800;
+  text-align: center;
 }
 .questions__container {
   display: flex;
@@ -22,6 +23,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  left:35%;
+  /* transform: translate(50%,50%); */
   /* align-items: center; */
 }
 .question-option {
@@ -47,7 +50,7 @@
     margin-bottom: 0.5rem;
 }
 
-input {
+.addText {
   background: #fff;
   border: 0.5px solid #808080;
 }
