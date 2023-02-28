@@ -24,7 +24,7 @@ const TextEditor = () => {
   return (
     
     <div className="quill-container">
-        <ReactQuill  modules={modules} theme="snow" onChange={setValue} placeholder="Content goes here..." />
+        <ReactQuill modules={modules}  theme="snow" onChange={setValue} placeholder="Content goes here..." />
     </div>
   )
 }

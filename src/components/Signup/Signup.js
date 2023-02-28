@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { Tab, Tabs } from "@mui/material";
+import Tab from "../Tabs/Tab";
 import image from "../../images/signup.png";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -45,18 +45,9 @@ const Signup = () => {
       </div>
 
       <div className="signupform__container">
-
+          <Tab/>
         <form onSubmit={handleSubmit}>
-          {/* <Tabs
-            // value={value}
-            onChange={handleChange}
-            textColor="secondary"
-            indicatorColor="secondary"
-            aria-label="secondary tabs example"
-          >
-            <Tab value="Signup" label="Signup" />
-            <Tab value="Login" label="Login" />
-          </Tabs> */}
+          
         <h2>Register</h2>
 
           <label className="label" htmlFor="firstName">
@@ -69,6 +60,7 @@ const Signup = () => {
             value={credentials.firstName}
             id="firstName"
             onChange={handleChange}
+            required
           />
 
           {/* <div className="middleName"> */}
@@ -82,6 +74,7 @@ const Signup = () => {
             placeholder="Prasad"
             value={credentials.middleName}
             onChange={handleChange}
+            required
           />
           {/* </div> */}
           {/* <div className="lastName"> */}
@@ -95,6 +88,7 @@ const Signup = () => {
             placeholder="Devkota"
             value={credentials.lastName}
             onChange={handleChange}
+            required
           />
           {/* </div> */}
           {/* <div className="email"> */}
@@ -108,6 +102,7 @@ const Signup = () => {
             placeholder="PAS076BCT044@wrc.edu.np"
             value={credentials.email}
             onChange={handleChange}
+            required
           />
           {/* </div> */}
           {/* <div className="security"> */}
@@ -120,6 +115,7 @@ const Signup = () => {
             value={credentials.password}
             onChange={handleChange}
             id="Password"
+            required
           />
           {/* </div> */}
           {/* <div className="cpassword"> */}
@@ -132,9 +128,10 @@ const Signup = () => {
             id="confirmPassword"
             value={credentials.confirmPassword}
             onChange={handleChange}
+            required
           />
           {/* </div> */}
-          <button className="signup-btn">Create Account</button>
+          <button className="signup-btn" type="submit">Create Account</button>
         </form>
       </div>
     </>

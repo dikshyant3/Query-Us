@@ -1,0 +1,20 @@
+.tab__container {
+  display: flex;
+  align-items: center;
+}
+.tab__links {
+  display: flex;
+  position: absolute;
+  margin-bottom:3rem;
+  left:0rem;
+  background-color: #fff;
+
+}
+.tab__link {
+  display: flex;
+  font-size: 1.2rem;
+  /* background-color: aqua; */
+  padding: 1rem 2rem;
+  
+
+}

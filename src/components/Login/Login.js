@@ -61,6 +61,7 @@ const Login = () => {
                   name="username"
                   value={credentials.username}
                   onChange={handleChange}
+                  required
                 />
               </div>
               {/* {errors.name && <p style={{color:"red",fontSize:"1rem"}}>{errors.name}</p>} */}
@@ -75,6 +76,7 @@ const Login = () => {
                   name="password"
                   value={credentials.password}
                   onChange={handleChange}
+                  required
                 />
               </div>
             
@@ -84,7 +86,7 @@ const Login = () => {
             <span className="forgot-password">
               <a href="/">Forgot Password?</a>
             </span>
-            <button className="btn">Login</button>
+            <button className="btn" type="submit">Login</button>
           </form>
         </div>
       </div>

@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./AddQuestion.css";
 import TextEditor from "./TextEditor";
-import "react-quill/dist/quill.core.css";
+import { TagsInput } from "react-tag-input-component";
+
 
 const AddQuestion = () => {
-  //   const [title, setTitle] = useState("");
+  const [questionTag, setQuestionTag] = useState([]);
+  const [title, setTitle] = useState("");
+  // const [body, setBody] = useState("");
+  const navigate=useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (title !== "") {
+      const bodyJSON = {
+        title: title,
+        questionTag: JSON.stringify(questionTag),
+      };
+      try {
+        const res = await axios.post(
+          "https://queryus-production.up.railway.app/question/add",
+          bodyJSON,
+          { withCredentials: true }
+        );
+        console.log(res.data);
+        alert("Question added successfully!!!");
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
+  }};
   // const [value, setValue] = useState('');
   return (
     <div className="add-questions">
@@ -17,7 +44,12 @@ const AddQuestion = () => {
             <div className="question-option">
               <div className="questionTitle">
                 <h3>Title</h3>
-                <input className="addText" type="text" />
+                <input
+                  className="addText"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  type="text"
+                />
               </div>
             </div>
             <div className="question-option">
@@ -37,16 +69,22 @@ const AddQuestion = () => {
                 <small>
                   Add upto three tags to describe what your question is about.
                 </small>
-                <input className="addText" type="text" />
+
+                <TagsInput
+                  value={questionTag}
+                  onChange={setQuestionTag}
+                  name="questionTags"
+                  placeHolder="Press Enter to add new tags"
+                />
               </div>
             </div>
-            <div className="post-buttons">
-            <button className="btn-texteditor">Post Question</button>
-            <button className="btn-discard">Cancel</button>
           </div>
-          </div>
-          
         </div>
+
+        <button onClick={handleSubmit} className="btn-texteditor">
+          Post Question
+        </button>
+        {/* <button className="btn-discard">Cancel</button> */}
       </div>
     </div>
   );
