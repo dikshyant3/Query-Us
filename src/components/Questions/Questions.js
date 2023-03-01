@@ -7,28 +7,54 @@ import "./Questions.css";
 const Questions = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [questions, setQuestions] = useState([]);
+  const token=localStorage.getItem("token");
+
 
   useEffect(() => {
     const fetchData = async () => {
       const url = `https://queryus-production.up.railway.app/question/all?pageNo=${currentPage}`;
       try {
-        const res = await axios.get(url, { withCredentials: true });
+        const res = await axios.get(url,{
+          headers:{
+            'Authorization':`Bearer ${token}`,
+          }
+        }, { withCredentials: true });
         console.log(res.data);
         setQuestions(res.data);
         
       } catch (error) {
         console.log(error);
       }
+
+      // const getData=async()=>{
+      //   const token=localStorage.getItem("token");
+      //   try{
+      //     const response=await axios.post(url,{
+      //       headers:{
+      //         'Authorization':`Bearer ${token}`,
+      //       },
+      //     })
+      //     console.log(response.data);
+      //   }
+      //   catch(error){
+      //     console.log(error);
+      //   }
+      // }
     };
     fetchData();
-  }, [currentPage]);
+  }, [currentPage,token]);
 
   const handlePrevPage = async () => {
     const url = `https://queryus-production.up.railway.app/question/all?pageNo=${
       currentPage - 1
     }`;
+
     try {
-      const res = await axios.get(url, { withCredentials: true });
+      const res = await axios.get(url,{
+        headers:{
+          'Authorization':`Bearer ${token}`,
+        }
+      });
       console.log(res.data);
       setQuestions(res.data);
       setCurrentPage(currentPage - 1);
@@ -42,7 +68,9 @@ const Questions = () => {
       currentPage + 1
     }`;
     try {
-      const res = await axios.get(url, { withCredentials: true });
+      const res = await axios.get(url,{headers:{
+        'Authorization':`Bearer ${token}`
+      }} );
       console.log(res.data);
       setQuestions(res.data);
       setCurrentPage(currentPage + 1);

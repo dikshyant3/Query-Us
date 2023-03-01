@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Tab from "../Tabs/Tab";
 import image from "../../images/signup.png";
+import { toast } from "react-toastify";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     firstName: "",
@@ -32,8 +33,10 @@ const Signup = () => {
           confirmPassword: credentials.confirmPassword,
         }
       );
+      toast.success("Signup successfull!")
       navigate("/login");
     } catch (error) {
+      toast.error("Signup failed!")
       console.log(new Error(error));
     }
   };

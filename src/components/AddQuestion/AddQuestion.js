@@ -7,17 +7,21 @@ import { TagsInput } from "react-tag-input-component";
 
 
 const AddQuestion = () => {
-  const [questionTag, setQuestionTag] = useState([]);
-  const [title, setTitle] = useState("");
+  const [tags, setTags] = useState([]);
+  const [questionTitle, setQuestionTitle] = useState("");
+  const [questionText, setQuestionText] = useState("");
+
   // const [body, setBody] = useState("");
   const navigate=useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title !== "") {
+    if (questionTitle !== "" ) {
       const bodyJSON = {
-        title: title,
-        questionTag: JSON.stringify(questionTag),
+        questionTitle: questionTitle,
+        // questionText:questionText,
+        tags: JSON.stringify(tags),
+        
       };
       try {
         const res = await axios.post(
@@ -46,8 +50,8 @@ const AddQuestion = () => {
                 <h3>Title</h3>
                 <input
                   className="addText"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  value={questionTitle}
+                  onChange={(e) => setQuestionTitle(e.target.value)}
                   type="text"
                 />
               </div>
@@ -59,7 +63,7 @@ const AddQuestion = () => {
                   Include all the details you want someone to answer
                 </small>
                 <div className="textEditor">
-                  <TextEditor />
+                  <TextEditor questionText={questionText} />
                 </div>
               </div>
             </div>
@@ -71,9 +75,9 @@ const AddQuestion = () => {
                 </small>
 
                 <TagsInput
-                  value={questionTag}
-                  onChange={setQuestionTag}
-                  name="questionTags"
+                  value={tags}
+                  onChange={setTags}
+                  name="tag"
                   placeHolder="Press Enter to add new tags"
                 />
               </div>

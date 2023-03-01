@@ -12,27 +12,38 @@ const Login = () => {
     username: "",
     password: "",
   });
+  
+  const url="https://queryus-production.up.railway.app/user/login";
+
   const navigate = useNavigate();
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://queryus-production.up.railway.app/user/login", 
+      const res=await axios.post(url, 
       {
         
         username: credentials.username,
         password: credentials.password,
         
-      },{withCredentials:true});
+      },
+      {withCredentials:true});
+      const token=res.data.message;
+      console.log(token);
+      localStorage.setItem('token',token);
       toast.success("Login successfull!")
       navigate("/");
     } catch (error) {
       toast.error("Login failed!")
       console.log({ message: "Bad request" });
     }
+
   };
+  
 
   return (
     <>
@@ -86,7 +97,7 @@ const Login = () => {
             <span className="forgot-password">
               <a href="/">Forgot Password?</a>
             </span>
-            <button className="btn" type="submit">Login</button>
+            <button className="btn" type="submit" >Login</button>
           </form>
         </div>
       </div>
