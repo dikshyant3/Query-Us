@@ -4,9 +4,11 @@ import axios from "axios";
 import "./AddQuestion.css";
 import TextEditor from "./TextEditor";
 import { TagsInput } from "react-tag-input-component";
+import { toast } from "react-toastify";
 
 
-const AddQuestion = (text) => {
+
+const AddQuestion = () => {
   const [tags, setTags] = useState([]);
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionText, setQuestionText] = useState("");
@@ -38,13 +40,16 @@ const AddQuestion = (text) => {
         },
         );
         console.log(res.data);
-        alert("Question added successfully!!!");
+        toast.success("Question added successfully!!!");
         navigate("/");
       } catch (error) {
         console.log(error);
       }
-  }};
-  // const [value, setValue] = useState('');
+  }
+else{
+  toast.error("Questions Not added!!!");
+}};
+  
   return (
     <div className="add-questions">
       <div className="add-question-container">

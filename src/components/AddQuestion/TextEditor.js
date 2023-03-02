@@ -4,6 +4,10 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 
+
+
+
+
 const  modules  = {
     toolbar: [
         [{ font: [] }],
@@ -17,13 +21,20 @@ const  modules  = {
         ["link", "image", "video"],
         ["clean"],
     ],
+    clipboard:{
+      matchVisual:false,
+    },
+    stripTags:true,
 };
 const TextEditor = ({handleQuestionText}) => {
   const [value,setValue]=useState("");
   // console.log(value);
   const handleChange=(text)=>{
-    setValue(text);
-    handleQuestionText(text);
+    const plainText = text.replace(/<[^>]+>/g, '');
+    setValue(plainText);
+    handleQuestionText(JSON.stringify(plainText));
+  
+
   }
   return (
     
