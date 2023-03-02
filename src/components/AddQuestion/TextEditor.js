@@ -27,7 +27,7 @@ const TextEditor = ({ handleQuestionText }) => {
     handleQuestionText(plainText);
   };
   return (
-    <div className="quill-container" style={{ direction: "ltr" }}>
+    <div className="quill-container" style={{ direction: "auto" }}>
       <ReactQuill
         modules={modules}
         value={value}
