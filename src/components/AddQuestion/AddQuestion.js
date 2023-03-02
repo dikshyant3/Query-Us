@@ -6,28 +6,36 @@ import TextEditor from "./TextEditor";
 import { TagsInput } from "react-tag-input-component";
 
 
-const AddQuestion = () => {
+const AddQuestion = (text) => {
   const [tags, setTags] = useState([]);
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionText, setQuestionText] = useState("");
+  const token=localStorage.getItem("token");
+
 
   // const [body, setBody] = useState("");
   const navigate=useNavigate();
+  const url="https://queryus-production.up.railway.app/question/add";
+  const handleQuestionText=(value)=>{
+    setQuestionText(value);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (questionTitle !== "" ) {
+    if (questionTitle !== "" && questionText!=="") {
       const bodyJSON = {
         questionTitle: questionTitle,
-        // questionText:questionText,
-        tags: JSON.stringify(tags),
-        
+        questionText:JSON.stringify(questionText),
+        tags: tags,
       };
+
       try {
         const res = await axios.post(
-          "https://queryus-production.up.railway.app/question/add",
-          bodyJSON,
-          { withCredentials: true }
+          url,
+          bodyJSON,{headers:{
+            'Authorization':`Bearer ${token}`,
+          }
+        },
         );
         console.log(res.data);
         alert("Question added successfully!!!");
@@ -63,7 +71,7 @@ const AddQuestion = () => {
                   Include all the details you want someone to answer
                 </small>
                 <div className="textEditor">
-                  <TextEditor questionText={questionText} />
+                  <TextEditor questionText={questionText} handleQuestionText={handleQuestionText} />
                 </div>
               </div>
             </div>

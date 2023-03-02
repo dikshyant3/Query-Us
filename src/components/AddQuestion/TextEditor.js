@@ -18,13 +18,17 @@ const  modules  = {
         ["clean"],
     ],
 };
-const TextEditor = () => {
+const TextEditor = ({handleQuestionText}) => {
   const [value,setValue]=useState("");
-  console.log(value);
+  // console.log(value);
+  const handleChange=(text)=>{
+    setValue(text);
+    handleQuestionText(text);
+  }
   return (
     
     <div className="quill-container">
-        <ReactQuill modules={modules} value={value} theme="snow" onChange={setValue} placeholder="Content goes here..." />
+        <ReactQuill modules={modules} value={value} theme="snow" onChange={handleChange} placeholder="Content goes here..." />
     </div>
   )
 }
