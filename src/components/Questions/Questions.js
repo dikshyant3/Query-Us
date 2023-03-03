@@ -25,21 +25,6 @@ const Questions = () => {
       } catch (error) {
         console.log(error);
       }
-
-      // const getData=async()=>{
-      //   const token=localStorage.getItem("token");
-      //   try{
-      //     const response=await axios.post(url,{
-      //       headers:{
-      //         'Authorization':`Bearer ${token}`,
-      //       },
-      //     })
-      //     console.log(response.data);
-      //   }
-      //   catch(error){
-      //     console.log(error);
-      //   }
-      // }
     };
     fetchData();
   }, [currentPage,token]);
