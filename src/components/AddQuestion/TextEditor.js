@@ -16,27 +16,23 @@ const modules = {
     ["link", "image", "video"],
     ["clean"],
   ],
+
 };
-const TextEditor = ({ handleQuestionText }) => {
-  const [value, setValue] = useState("");
-  // console.log(value);
+const TextEditor = ({handleQuestionText}) => {
+  const [value,setValue]=useState("");
+  console.log(value);
   const handleChange = (text) => {
-    const plainText = text.replace(/<[^>]+>/g, "");
-    setValue(plainText);
-    console.log(plainText);
-    handleQuestionText(plainText);
+    setValue(text);
+    handleQuestionText(text);
   };
   return (
-    <div className="quill-container" style={{ direction: "auto" }}>
-      <ReactQuill
-        modules={modules}
-        value={value}
-        theme="snow"
-        onChange={handleChange}
-        placeholder="Content goes here..."
-      />
+    
+    <div className="quill-container">
+        <ReactQuill modules={modules} value={value} theme="snow" onChange={handleChange} placeholder="Content goes here..." />
     </div>
   );
 };
 
 export default TextEditor;
+
+

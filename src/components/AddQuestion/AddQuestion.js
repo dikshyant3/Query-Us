@@ -7,37 +7,39 @@ import { TagsInput } from "react-tag-input-component";
 import { toast } from "react-toastify";
 
 
-
 const AddQuestion = () => {
+  const token=localStorage.getItem("token");
   const [tags, setTags] = useState([]);
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionText, setQuestionText] = useState("");
-  const token=localStorage.getItem("token");
 
+
+  const handleQuestionText=(questionText)=>{
+    setQuestionText(questionText);
+  }
 
   // const [body, setBody] = useState("");
   const navigate=useNavigate();
   const url="https://queryus-production.up.railway.app/question/add";
-  const handleQuestionText=(value)=>{
-    setQuestionText(value);
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (questionTitle !== "" && questionText!=="") {
       const bodyJSON = {
         questionTitle: questionTitle,
-        questionText:JSON.stringify(questionText),
+        questionText:questionText,
         tags: tags,
+        
       };
-
       try {
         const res = await axios.post(
           url,
-          bodyJSON,{headers:{
-            'Authorization':`Bearer ${token}`,
-          }
-        },
+          bodyJSON,{
+            headers:{
+              'Authorization':`Bearer ${token}`
+            }
+          },
+          { withCredentials: true }
         );
         console.log(res.data);
         toast.success("Question added successfully!!!");
@@ -76,7 +78,7 @@ else{
                   Include all the details you want someone to answer
                 </small>
                 <div className="textEditor">
-                  <TextEditor questionText={questionText} handleQuestionText={handleQuestionText} />
+                  <TextEditor questionText={questionText} handleQuestionText={handleQuestionText}/>
                 </div>
               </div>
             </div>
