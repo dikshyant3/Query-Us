@@ -17,7 +17,6 @@
 .questions__container {
   display: flex;
   align-items: center;
-  /* position: relative; */
   width: 100%;
 }
 .question-options {
@@ -82,11 +81,6 @@
   cursor: pointer;
   margin-left:14rem ;
 }
-/* .btn-discard {
-  color: rgba(220, 20, 60, 0.8);
-  background: none;
-  border: none;
-  cursor: pointer;
-} */
+
 
 /* React Quill CSS */
