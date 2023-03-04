@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import AddQuestion from "./components/AddQuestion/AddQuestion";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import AnswersPage from "./components/AnswersPage/AnswersPage";
 // import Questions from "./components/Questions/Questions";
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/addquestion" element={<AddQuestion />} />
+
+          <Route path="/answersPage/:id" element={<AnswersPage />} />
+
         </Routes>
       </BrowserRouter>
     </div>

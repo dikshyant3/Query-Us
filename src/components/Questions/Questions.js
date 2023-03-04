@@ -4,6 +4,7 @@ import QuestionItem from "../QuestionItem/QuestionItem";
 import "./Questions.css";
 
 
+
 const Questions = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [questions, setQuestions] = useState([]);
