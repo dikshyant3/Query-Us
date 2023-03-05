@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./AnswersPage.css";
 
 const AnswersPage = (props) => {
-    const [question, setQuestion] = useState(null);
+    const [questions, setQuestions] = useState(null);
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
