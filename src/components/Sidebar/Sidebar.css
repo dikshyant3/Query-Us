@@ -3,9 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* flex:0.5; */
-  max-width: 200px;
-  /* border-right: 1px solid #38b0dc; */
+  width: 350px;
 }
 .sidebar-btn {
   padding: 0.75rem 0.75rem;
@@ -15,13 +13,13 @@
   font-weight: 600;
   border-radius: 0.75rem;
   border: none;
-  margin: 1.5rem;
+  margin: 2.25rem 1.5rem 1.5rem 3rem;
   cursor: pointer;
 }
 .sidebar-container {
   display: flex;
   width: 100%;
-  margin: 2.5rem 1rem;
+  margin: 2.5rem 1rem 2.5rem 1.25rem;
   align-items: center;
 }
 .sidebar-options {
@@ -62,7 +60,7 @@ a:hover {
 .sidebar-tags {
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 1.5rem;
+  margin: 2.5rem 1.5rem 2.5rem 2rem;
   padding: 0 1.75rem;
   width: 100%;
 }
