@@ -2,13 +2,10 @@ import React from "react";
 import "./QuestionItem.css";
 import { Avatar } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const QuestionItem = ({ question }) => {
-  const navigate=useNavigate();
-  const handleQuestionClick=()=>{
-    navigate(`/answersPage/${question.id}`)
-  }
+  
   return (
     <>
       <div className="card" key={question.id}>
@@ -51,8 +48,8 @@ const QuestionItem = ({ question }) => {
                 </div>
               </div>
               <div className="question-body">
-                <div className="question-title" onClick={handleQuestionClick}>
-                  <Link to="/answersPage">
+                <div className="question-title" >
+                  <Link to={`/answerPage/${question.id}`}>
                     <p>{question.questionTitle}</p>
                   </Link>
                 </div>
@@ -70,7 +67,7 @@ const QuestionItem = ({ question }) => {
                 </div>
 
                 <div className="answer-button">
-                  <Link to={`/answersPage/${question.id}`}>
+                  <Link to='/answersPage'>
                     <button className="btn-answer">Answer</button>
                   </Link>
                 </div>

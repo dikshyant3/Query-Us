@@ -26,7 +26,7 @@ function App() {
 
           <Route path="/addquestion" element={<AddQuestion />} />
 
-          <Route path="/answersPage/:id" element={<AnswersPage />} />
+          <Route path="/answersPage" element={<AnswersPage />} />
 
         </Routes>
       </BrowserRouter>
