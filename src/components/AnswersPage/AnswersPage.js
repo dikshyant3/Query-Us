@@ -37,6 +37,11 @@ const AnswersPage = () => {
     return <div>Loading...</div>;
   }
 
+  const handleComment=async()=>{
+    if(comment!==""){
+        
+    }
+  }
   return (
     <div className="answer-container">
       <div className="main-container">
@@ -61,7 +66,15 @@ const AnswersPage = () => {
           ))}
         </div>
         <div className="comments">
-          <p onClick={()=>setShow(!show)}></p>
+          <p onClick={()=>setShow(!show)}>Add a comment</p>
+          {
+            show && (<div className="commentArea">
+              <textarea value={comment} onChange={(e)=>setComment(e.target.value)} type="text" placeholder="Add a comment..." rows={5}>
+
+              </textarea>
+              <button onClick={handleComment} style={{maxWidth:"fit-content"}}></button>
+            </div>)
+          }
         </div>
       </div>
     </div>
