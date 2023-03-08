@@ -50,7 +50,7 @@ const AnswersPage = () => {
             </div>
             <div className="stats">
               <p>{question.views}</p>
-              <p>asked {new Date(question.timestamp).toLocaleString}</p>
+              <p>asked {question.timestamp}</p>
             </div>
           </div>
           <div className="questionButton">
