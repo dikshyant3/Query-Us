@@ -49,7 +49,7 @@ const QuestionItem = ({ question }) => {
               </div>
               <div className="question-body">
                 <div className="question-title" >
-                  <Link to={`/answerPage/${question.id}`}>
+                  <Link to={`/answersPage?query=${question.id}`}>
                     <p>{question.questionTitle}</p>
                   </Link>
                 </div>
