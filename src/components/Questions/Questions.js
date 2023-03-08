@@ -6,7 +6,7 @@ import "./Questions.css";
 
 
 const Questions = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [questions, setQuestions] = useState([]);
   const token=localStorage.getItem("token");
   
@@ -71,10 +71,10 @@ const Questions = () => {
         <QuestionItem key={question.id} question={question} />
       ))}
       <div className="pagination-container">
-        <button className="btn-paginate" onClick={handlePrevPage} disabled={currentPage === 1}>
+        <button className="btn-paginate" onClick={handlePrevPage} disabled={currentPage === 0}>
           Previous
         </button>
-        <div className="pageNo">{`Page ${currentPage}`}</div>
+        <div className="pageNo">{`Page ${currentPage+1}`}</div>
         <button className="btn-paginate" onClick={handleNextPage} disabled={questions.length<10} >
           Next
         </button>

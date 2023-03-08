@@ -7,7 +7,6 @@ import TextEditor from "../AddQuestion/TextEditor";
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
   const [question, setQuestion] = useState(null);
-  
 
   // The below three lines of used to redirect a single question to answersPage
   let search = window.location.search;
@@ -50,7 +49,9 @@ const AnswersPage = () => {
             </div>
             <div className="stats">
               <p>{question.views}</p>
-              <p>asked {question.timestamp}</p>
+              <div className="stat-timestamp">
+                <p>asked {question.timestamp[0]+"/"+question.timestamp[1]+"/"+question.timestamp[2]+" at "+question.timestamp[3]+":"+question.timestamp[4]+":"+question.timestamp[5]}</p>
+              </div>
             </div>
           </div>
           <div className="questionButton">
@@ -66,10 +67,10 @@ const AnswersPage = () => {
         </div>
       </div>
       <div className="answerTextArea">
-            <TextEditor></TextEditor>
-            <div className="answerButton">
-              <button className="postBtn">Post Answer</button>
-            </div>
+        <TextEditor></TextEditor>
+        <div className="answerButton">
+          <button className="postBtn">Post Answer</button>
+        </div>
       </div>
     </div>
   );
