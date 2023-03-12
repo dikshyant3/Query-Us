@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import image from "../../images/signup.png";
+// import image from "../../images/signup.png";
 import { toast } from "react-toastify";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -42,9 +42,9 @@ const Signup = () => {
 
   return (
     <>
-      <div className="signup_img">
+      {/* <div className="signup_img">
         <img src={image} alt="Signup_image" className="register-img"></img>
-      </div>
+      </div> */}
 
       <div className="signupform__container">
         <h2>Register</h2>
