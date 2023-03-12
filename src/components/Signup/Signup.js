@@ -62,9 +62,9 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-              </div>
+              
 
-              <div className="input-box">
+              
                 <span className="details">Middle Name</span>
                 <input
                   type="text"
@@ -75,8 +75,8 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
-              </div>
-              <div className="input-box">
+              
+              
                 <span className="details">Last Name</span>
                 <input
                   type="text"

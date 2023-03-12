@@ -31,17 +31,17 @@
 
 }
 
-/* .signupform__container input{
-  width: 100%;
-  padding: 0.75rem 0.5rem;
-  border-radius: 999px;
-  background: #ffffff;
-  border: none;
-  outline: none;
-  outline-width:0;
-  color: #000000;
-  overflow: hidden;
+.content form .user-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+form .user-details .input-box{
+    width: calc(100%/2-10px);
+    margin-bottom: 1rem;
+}
+/*  
 .signup-btn{
     margin-top: .5rem;
     padding: 0.75rem 1.5rem;
