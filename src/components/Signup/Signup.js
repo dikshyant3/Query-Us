@@ -47,85 +47,88 @@ const Signup = () => {
       </div> */}
 
       <div className="signupform__container">
-        <h2>Register</h2>
+        <div className="signup-title">Register</div>
+        <div className="content">
+          <form onSubmit={handleSubmit}>
+            <div className="user-details">
+              <div className="input-box">
+                <span className="details">First Name</span>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Sudarshan"
+                  value={credentials.firstName}
+                  id="firstName"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="input-box">
-            <span className="details">First Name</span>
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Sudarshan"
-              value={credentials.firstName}
-              id="firstName"
-              onChange={handleChange}
-              required
-            />
-          </div>
+              <div className="input-box">
+                <span className="details">Middle Name</span>
+                <input
+                  type="text"
+                  name="middleName"
+                  id="middleName"
+                  placeholder="Prasad"
+                  value={credentials.middleName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Last Name</span>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Devkota"
+                  value={credentials.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          <div className="input-box">
-            <span className="details">Middle Name</span>
-            <input
-              type="text"
-              name="middleName"
-              id="middleName"
-              placeholder="Prasad"
-              value={credentials.middleName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="input-box">
-            <span className="details">Last Name</span>
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              placeholder="Devkota"
-              value={credentials.lastName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="input-box">
-            <span className="details">Email</span>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder="PAS076BCT044@wrc.edu.np"
-              value={credentials.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="input-box">
-            <span className="details">Password</span>
-            <input
-              type="password"
-              name="password"
-              value={credentials.password}
-              onChange={handleChange}
-              id="Password"
-              required
-            />
-          </div>
-          <div className="input-box">
-            <span className="details">Confirm Password</span>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              value={credentials.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button className="signup-btn" type="submit">
-            Create Account
-          </button>
-        </form>
+              <div className="input-box">
+                <span className="details">Email</span>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="PAS076BCT044@wrc.edu.np"
+                  value={credentials.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Password</span>
+                <input
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={handleChange}
+                  id="Password"
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">Confirm Password</span>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  value={credentials.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <button className="signup-btn" type="submit">
+              Create Account
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );
