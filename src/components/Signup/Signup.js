@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import image from "../../images/signup.png";
+import image from "../../images/signup.png";
 import { toast } from "react-toastify";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -42,93 +42,78 @@ const Signup = () => {
 
   return (
     <>
-      {/* <div className="signup_img">
+      <div className="signup_img">
         <img src={image} alt="Signup_image" className="register-img"></img>
-      </div> */}
+      </div>
+      <div className="form__container">
+        <form onSubmit={handleSubmit}>
+          {/* <Tabs
+            // value={value}
+            onChange={handleChange}
+            textColor="secondary"
+            indicatorColor="secondary"
+            aria-label="secondary tabs example"
+          >
+            <Tab value="Signup" label="Signup" />
+            <Tab value="Login" label="Login" />
+          </Tabs> */}
+          <h2>Register</h2>
+          <label htmlFor="username">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Sudarshan"
+            value={credentials.firstName}
+            onChange={handleChange}
+          />
+          <label htmlFor="username">Middle Name</label>
+          <input
+            type="text"
+            name="middleName"
+            placeholder="Prasad "
+            value={credentials.middleName}
+            onChange={handleChange}
+          />
+          <label htmlFor="username">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Devkota"
+            value={credentials.lastName}
+            onChange={handleChange}
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            placeholder="PAS076BCT044@wrc.edu.np"
+            value={credentials.email}
+            onChange={handleChange}
+          />
+          <label htmlFor="Password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+          />
 
-      <div className="signupform__container">
-        <div className="signup-title">Register</div>
-        <div className="content">
-          <form onSubmit={handleSubmit}>
-            <div className="user-details">
-              <div className="input-box">
-                <span className="details">First Name</span>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="Sudarshan"
-                  value={credentials.firstName}
-                  id="firstName"
-                  onChange={handleChange}
-                  required
-                />
-              
+          <label htmlFor="Confirm Password">Confirm Password</label>
+          <input
+            type="password"
+            name="cpassword"
+            value={credentials.cpassword}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            value={credentials.confirmPassword}
+            onChange={handleChange}
+          />
 
-              
-                <span className="details">Middle Name</span>
-                <input
-                  type="text"
-                  name="middleName"
-                  id="middleName"
-                  placeholder="Prasad"
-                  value={credentials.middleName}
-                  onChange={handleChange}
-                  required
-                />
-              
-              
-                <span className="details">Last Name</span>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="Devkota"
-                  value={credentials.lastName}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="input-box">
-                <span className="details">Email</span>
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  placeholder="PAS076BCT044@wrc.edu.np"
-                  value={credentials.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <span className="details">Password</span>
-                <input
-                  type="password"
-                  name="password"
-                  value={credentials.password}
-                  onChange={handleChange}
-                  id="Password"
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <span className="details">Confirm Password</span>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  value={credentials.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
-            <button className="signup-btn" type="submit">
-              Create Account
-            </button>
-          </form>
-        </div>
+          <button>Create Account</button>
+        </form>
       </div>
     </>
   );
