@@ -52,7 +52,7 @@ const Login = () => {
           <img src={image} className="login-img" alt="Login_image" />
         </div>
 
-        <div className="form__container">
+        <div className="login-form__container">
           <form onSubmit={handleSubmit}>
             <h2>Login</h2>
             <div className="signup-redirect">

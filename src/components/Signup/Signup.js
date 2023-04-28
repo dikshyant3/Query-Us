@@ -58,7 +58,7 @@ const Signup = () => {
             <Tab value="Login" label="Login" />
           </Tabs> */}
           <h2>Register</h2>
-          <label htmlFor="username">First Name</label>
+          {/* <label htmlFor="username">First Name</label>
           <input
             type="text"
             name="firstName"
@@ -112,7 +112,38 @@ const Signup = () => {
             onChange={handleChange}
           />
 
-          <button>Create Account</button>
+          <button>Create Account</button> */}
+
+          <div className="user-details">
+            <div className="name-input-box">
+              <span className="details">First Name</span>
+              <input type="text" placeholder="First Name" required />
+            </div>
+            <div className="name-input-box">
+              <span className="details">Middle Name</span>
+              <input type="text" placeholder="Middle Name" required />
+            </div>
+            <div className="name-input-box">
+              <span className="details">Last Name</span>
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <div className="input-box">
+              <span className="input-details">Email</span>
+              <input type="text" placeholder="email" required />
+            </div>
+            <div className="input-box">
+              <span className="input-details">Password</span>
+              <input type="text" placeholder="email" required />
+            </div>
+            <div className="input-box">
+              <span className="input-details">Confirm Password</span>
+              <input type="text" placeholder="email" required />
+            </div>
+          </div>
+
+          <div className="button">
+            <input type="submit" value="Register" />
+          </div>
         </form>
       </div>
     </>

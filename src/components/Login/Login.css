@@ -32,7 +32,7 @@ body{
 
 } 
 
-.form__container{
+.login-form__container{
     width:60%;
     display: flex;
     flex-direction: column;
