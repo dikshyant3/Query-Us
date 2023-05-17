@@ -89,7 +89,7 @@ const AnswersPage = () => {
         {question.answers.map((answer) => (
           <div className="mt-4 flex flex-col" key={answer.id}>
             <div className="border-b-2 border-gray-200">
-              <p className="max-w-[60%]">{answer.answer}</p>
+              <p className="max-w-[45%]">{answer.answer}</p>
               <div className="flex mr-4 mt-3">
                 <div className="flex items-center mr-10 ">
                   <p className="text-sm font-thin opacity-60 pr-2">Answered </p>
@@ -106,11 +106,11 @@ const AnswersPage = () => {
           </div>
         ))}
       </div>
-
+{/* REACT Quill */}
       <div className="flex flex-col mt-4">
-        <h2 className="mb-4">Your Answer</h2>
+        <h2 className="mb-4 text-2xl font-medium ">Your Answer</h2>
         <TextEditor></TextEditor>
-        <div className="answerButton">
+        <div className="px-4">
           <button className="postBtn">Post Answer</button>
         </div>
       </div>

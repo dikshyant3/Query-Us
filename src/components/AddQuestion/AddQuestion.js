@@ -72,13 +72,12 @@ const AddQuestion = () => {
             <small className="mb-1">
               Include all the details you want someone to answer
             </small>
-            {/* <div className=""> */}
+            
             <TextEditor
               questionText={questionText}
               className=""
               handleQuestionText={handleQuestionText}
             />
-            {/* </div> */}
           </div>
         </div>
 
