@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./TextEditor.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+// import './TextEditor.css'
 
 const modules = {
   toolbar: [
@@ -16,23 +16,36 @@ const modules = {
     ["link", "image", "video"],
     ["clean"],
   ],
-
 };
-const TextEditor = ({handleQuestionText}) => {
-  const [value,setValue]=useState("");
-  console.log(value);
+
+const stripHtml = (html) => {
+  const tempElement = document.createElement("div");
+  tempElement.innerHTML = html;
+  return tempElement.textContent || tempElement.innerText || "";
+};
+
+const TextEditor = ({ handleQuestionText}) => {
+  const [value, setValue] = useState("");
+
   const handleChange = (text) => {
     setValue(text);
-    handleQuestionText(text);
+    const plainText = stripHtml(text); // Strip HTML tags
+    console.log(plainText);
+    handleQuestionText(plainText); // Pass the plain text to the parent component
   };
   return (
-    
-    <div className="quill-container">
-        <ReactQuill modules={modules} value={value} theme="snow" onChange={handleChange} placeholder="Content goes here..." />
+    <div className="flex">
+      <div className="max-w-3/4">
+        <ReactQuill
+          modules={modules}
+          className="bg-white border border-gray-300 rounded p-2 h-[auto] overflow-y-scroll resize-y w-full flex flex-col "
+          value={value}
+          onChange={handleChange}
+          placeholder="Content goes here..."
+        />
+      </div>
     </div>
   );
 };
 
 export default TextEditor;
-
-
