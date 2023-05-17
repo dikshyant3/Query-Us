@@ -98,7 +98,7 @@ const AddQuestion = () => {
         <div className="px-4">
           <button
             onClick={handleSubmit}
-            className="px-[10px] py-[8px] float-right  bg-skyBlue text-white border-none rounded cursor-pointer "
+            className="px-[10px] py-[8px] float-right  bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
           >
             Post Question
           </button>
