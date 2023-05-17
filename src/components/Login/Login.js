@@ -68,7 +68,7 @@ const Login = () => {
                 <img src={image} alt="" className="w-32" />
               </div>
               <div className="py-8">
-                <p className="text-3xl font-bold text-green-500">
+                <p className="text-3xl font-bold text-blue-500">
                   Log into your Account
                 </p>
               </div>
@@ -121,7 +121,7 @@ const Login = () => {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="bg-green-500 p-6 py-2 rounded-full text-white hover:bg-white hover:text-green-500"
+                    className="bg-blue-500 p-6 py-2 rounded-full text-white hover:bg-white hover:text-green-500"
                   >
                     Login
                   </button>
@@ -130,7 +130,7 @@ const Login = () => {
                     Don't have an account?
                     <a
                       href="/register"
-                      className="text-danger text-green-500 pl-1 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                      className="text-danger text-blue-500 pl-1 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
                     >
                       Sign up
                     </a>
@@ -138,7 +138,7 @@ const Login = () => {
                 </form>
               </div>
             </div>
-            <div className="w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
+            <div className="w-2/5 bg-blue-500 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
               <h2 className="text-3xl font-bold mb-2 py-0">Welcome</h2>
               <p className="mb-10">If you don't have an account</p>
               <a
