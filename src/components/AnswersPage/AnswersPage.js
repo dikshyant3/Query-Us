@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
 import "./AnswersPage.css";
 import TextEditor from "../AddQuestion/TextEditor";
+import { Link } from "react-router-dom";
 
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
@@ -37,36 +38,77 @@ const AnswersPage = () => {
   }
 
   return (
-    <div className="answer-container">
-      <div className="main-container">
-        <div className="mainQuestion">
-          <div className="answersQuestionContainer">
-            <div className="question-header" key={question.id}>
-              <p>{question.questionTitle}</p>
+    <div className="flex flex-col w-full h-screen ">
+      {/* heading part */}
+      <div className="flex flex-col border-b-2 " key={question.id}>
+        <div className="flex flex-col border-b-2 border-gray-200 ">
+          <div className="flex items-center justify-between">
+            <p className="text-2xl font-medium text-black opacity-80">
+              {question.questionTitle}
+            </p>
+            <Link to="/addquestion">
+              <button
+                type="button"
+                className="px-[10px] py-[8px] text-white text-sm font-light bg-indigo-600"
+              >
+                Ask Question
+              </button>
+            </Link>
+          </div>
+          <div className="flex items-center mb-3">
+            <div className="flex items-center mr-10 ">
+              <p className="text-sm font-thin opacity-60 pr-2">Asked </p>
+              <p className="text-sm font-thin ">
+                {question.timestamp[0] +
+                  "/" +
+                  question.timestamp[1] +
+                  "/" +
+                  question.timestamp[2]}
+              </p>
             </div>
-            <div className="question-main">
-              <p>{question.questionText}</p>
+            <div className="flex items-center">
+              <p className="text-sm font-thin opacity-60 pr-2">Viewed</p>
+              <p className="text-sm font-thin">{question.views} times</p>
             </div>
-            <div className="stats">
-              <p>{question.views}</p>
-              <div className="stat-timestamp">
-                <p>asked {question.timestamp[0]+"/"+question.timestamp[1]+"/"+question.timestamp[2]+" at "+question.timestamp[3]+":"+question.timestamp[4]+":"+question.timestamp[5]}</p>
+          </div>
+        </div>
+        {/* Question Text Or Body */}
+        <div className="flex flex-col border-gray-200">
+          <p className="text-gray-800 mt-2">{question.questionText}</p>
+          <div className="flex items-center mb-3">
+            {question.tags.map((tag) => (
+              <div className="mr-4 text-indigo-600">{tag}</div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Answers */}
+      <div className="mt-2">
+        <p className="text-2xl font-medium">{question.answerCount} Answers</p>
+        {question.answers.map((answer) => (
+          <div className="mt-4 flex flex-col" key={answer.id}>
+            <div className="border-b-2 border-gray-200">
+              <p className="max-w-[60%]">{answer.answer}</p>
+              <div className="flex mr-4 mt-3">
+                <div className="flex items-center mr-10 ">
+                  <p className="text-sm font-thin opacity-60 pr-2">Answered </p>
+                  <p className="text-sm font-thin ">
+                    {answer.timestamp[0] +
+                      "/" +
+                      answer.timestamp[1] +
+                      "/" +
+                      answer.timestamp[2]}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="questionButton">
-            <button className="questionBtn">Ask Question</button>
-          </div>
-        </div>
-        <div className="mainAnswer">
-          {question.answers.map((answer) => (
-            <div className="answer-main" key={answer.id}>
-              <p>{answer.answer}</p>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
-      <div className="answerTextArea">
+
+      <div className="flex flex-col mt-4">
+        <h2 className="mb-4">Your Answer</h2>
         <TextEditor></TextEditor>
         <div className="answerButton">
           <button className="postBtn">Post Answer</button>

@@ -28,16 +28,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!credentials.username.trim()) {
       return toast.error("Username is required!");
     }
-    
+
     if (!credentials.password.trim()) {
       return toast.error("Password is required!");
     }
-  
-    
+
     try {
       const res = await axios.post(
         url,
@@ -76,7 +75,7 @@ const Login = () => {
                 <form className="mx-auto" onSubmit={handleSubmit} noValidate>
                   <div className="text-left">
                     <label htmlFor="username">Username</label>
-                    <div className="flex items-center gap-2 mb-2 mt-2 ">
+                    <div className="flex items-center gap-2 mb-4 mt-2 ">
                       <AccountCircleIcon className="text-gray-700 w-6 h-6" />
                       <input
                         type="text"
@@ -89,7 +88,17 @@ const Login = () => {
                         required
                       />
                     </div>
-                    <label htmlFor="password">Password</label>
+                    <div className="flex items-center justify-between">
+                      <label htmlFor="password">Password</label>
+                      <div class="text-sm">
+                        <a
+                          href="/reset-password"
+                          class="font-semibold text-indigo-600 hover:text-indigo-500"
+                        >
+                          Forgot password?
+                        </a>
+                      </div>
+                    </div>
                     <div className="flex space-x-2 mt-2 mb-2 items-center text-left justify-center">
                       <LockIcon className="text-gray-700 w-6 h-6" />
 
@@ -125,18 +134,16 @@ const Login = () => {
                   >
                     Login
                   </button>
-
-                  
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
-                    Don't have an account?
-                    <a
-                      href="/register"
-                      className="pl-1 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                    >
-                      Sign up
-                    </a>
-                  </p>
+                  Don't have an account?
+                  <a
+                    href="/register"
+                    className="pl-1 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                  >
+                    Sign up
+                  </a>
+                </p>
               </div>
             </div>
             <div className="w-2/5 bg-indigo-600 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
