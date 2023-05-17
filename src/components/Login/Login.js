@@ -68,7 +68,7 @@ const Login = () => {
                 <img src={image} alt="" className="w-32" />
               </div>
               <div className="py-8">
-                <p className="text-3xl font-bold text-blue-500">
+                <p className="text-3xl font-bold text-indigo-600">
                   Log into your Account
                 </p>
               </div>
@@ -95,7 +95,7 @@ const Login = () => {
 
                       <input
                         type={showPassword ? "text" : "password"}
-                        className="my-auto outline-none border-0 ring-0 focus:ring-0"
+                        className="my-auto pb-4 outline-none border-0 ring-0 focus:ring-0"
                         name="password"
                         id="password"
                         placeholder="Password"
@@ -121,29 +121,30 @@ const Login = () => {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="bg-blue-500 p-6 py-2 rounded-full text-white hover:bg-white hover:text-green-500"
+                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Login
                   </button>
 
-                  <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
+                  
+                </form>
+                <p className="mt-10 text-center text-sm text-gray-500">
                     Don't have an account?
                     <a
                       href="/register"
-                      className="text-danger text-blue-500 pl-1 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                      className="pl-1 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                     >
                       Sign up
                     </a>
                   </p>
-                </form>
               </div>
             </div>
-            <div className="w-2/5 bg-blue-500 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
+            <div className="w-2/5 bg-indigo-600 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
               <h2 className="text-3xl font-bold mb-2 py-0">Welcome</h2>
               <p className="mb-10">If you don't have an account</p>
               <a
                 href="/register"
-                className="border-2 border-white text-white rounded-full inline-block px-12 py-2 font-semibold hover:bg-white hover:text-green-500"
+                className="border-2 border-white bg-white text-indigo-600 rounded-full inline-block px-12 py-2 font-semibold hover:bg-white hover:text-indigo-500"
               >
                 Sign up
               </a>
