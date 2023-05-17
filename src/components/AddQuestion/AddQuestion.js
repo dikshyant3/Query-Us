@@ -75,7 +75,6 @@ const AddQuestion = () => {
             
             <TextEditor
               questionText={questionText}
-              className=""
               handleQuestionText={handleQuestionText}
             />
           </div>
