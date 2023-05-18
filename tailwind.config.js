@@ -11,7 +11,13 @@ module.exports = {
         white:'#ffffff',
         black:'#000000',
         sidebar:'rgba(0,0,0,0.8)',
+        searchBar:'#f5f5f5',
         lightSkyBlue:'#38b0cc',
+        profileColor:'#ffde32',
+        medalGold:'#dfc900',
+        medalSilver:'#cccccc',
+        medalBronze:'#cd7f32'
+
         
       },
       gridTemplateColumns: {
