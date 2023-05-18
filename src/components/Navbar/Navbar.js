@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../images/Logo2.png";
-import { GrSearch } from "react-icons/gr";
+// import { GrSearch } from "react-icons/gr";
 import { RiStarSLine } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Search from "../Search/Search";
 
 
 const Navbar = () => {
@@ -60,14 +61,16 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="flex items-center w-[60%] p-[10px] h-[40px] rounded border-none outline-0 ring-0 bg-[#f5f5f5]">
+        {/* <div className="flex items-center w-[60%] p-[10px] h-[40px] rounded border-none outline-0 ring-0 bg-[#f5f5f5]">
           <GrSearch style={{ fill: "slate" }} />
           <input
             type="text"
             placeholder="Search"
             className="w-full h-[40px] outline-none border-0 ring-0 focus:border-0 focus:ring-0 bg-[#f5f5f5]"
           />
-        </div>
+        </div> */}
+        <Search/>
+
         <div className="flex items-center justify-between ml-4">
           {/* Reputation */}
           <div className="pr-6 flex items-center">

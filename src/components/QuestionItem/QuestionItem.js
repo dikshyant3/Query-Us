@@ -42,7 +42,7 @@ const QuestionItem = ({ question }) => {
                 </div>
                 <div className="flex items-end gap-5 justify-between text-sm">
                   {question.tags.map((tag) => (
-                    <div className="text-skyBlue h-full">{tag}</div>
+                    <div className="text-indigo-500 h-full">{tag}</div>
                   ))}
                 </div>
               </div>
