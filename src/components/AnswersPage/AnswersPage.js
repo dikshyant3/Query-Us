@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import TextEditor from "../AddQuestion/TextEditor";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -36,6 +35,7 @@ const AnswersPage = () => {
     fetchQuestion();
   }, [token, url]);
 
+
   if (!question) {
     return <div>Loading...</div>;
   }
@@ -69,7 +69,7 @@ const AnswersPage = () => {
     <div className="flex mt-4">
       <div className="flex flex-col w-1/2  mx-auto">
         {/* heading part */}
-        <div className="flex flex-col border-b-2" key={question.id}>
+        <div className="flex flex-col" key={question.id}>
           <div className="flex flex-col border-b-2 border-gray-200 ">
             <div className="flex items-center w-full justify-between">
               <p className="text-2xl w-3/4 font-medium text-black opacity-80">
@@ -106,22 +106,22 @@ const AnswersPage = () => {
             <p className="text-gray-800 mt-2">{question.questionText}</p>
             <div className="flex items-center mb-3">
               {question.tags.map((tag) => (
-                <div className="mr-4 text-indigo-600">{tag}</div>
+                <div className="mt-4 mr-4 text-indigo-600">{tag}</div>
               ))}
             </div>
           </div>
         </div>
 
         {/* Answers */}
-        <div className="mt-2 border-2 border-red-500">
+        <div className="mt-2">
           <p className="text-2xl font-medium">{question.answerCount} Answers</p>
-          {question.answers.map((answer) => (
-            <div className="flex items-center gap-2">
-            <div className="border-2 border-blue-500">
-              <AnswerUpvote count={answer.voteCount} id={answer.id}/>
+          {question.answers.sort((a,b)=>a.voteCount>b.voteCount).map((answer) => (
+            <div key={answer.id} className="flex items-center border-b-2 border-gray-200 gap-8">
+            <div className="flex flex-col ">
+              <AnswerUpvote count={answer.voteCount} id={answer.id} upVoted={answer.upVoted}/>
             </div>
-            <div className="mt-4 flex flex-col border-2 border-black" key={answer.id}>
-              <div className="border-b-2 border-gray-200">
+            <div className="mt-4 flex flex-col w-full" key={answer.id}>
+              <div className="w-full ">
                 <p className="max-w-1/2">{answer.answer}</p>
                 <div className="flex mr-4 mt-3">
                   <div className="flex items-center mr-10 ">
