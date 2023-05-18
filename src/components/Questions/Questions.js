@@ -71,11 +71,11 @@ const Questions = () => {
         <QuestionItem key={question.id} question={question} />
       ))}
       <div className="flex justify-between items-center mt-4 mr-8 ml-8 mb-4">
-        <button className="bg-skyBlue text-white rounded border-0 cursor-pointer px-6 py-2" onClick={handlePrevPage} disabled={currentPage === 0}>
+        <button className="bg-indigo-600 text-white rounded border-0 cursor-pointer px-6 py-2 hover:bg-indigo-400" onClick={handlePrevPage} disabled={currentPage === 0}>
           Previous
         </button>
         <div className="m-auto flex items-center">{`Page ${currentPage+1}`}</div>
-        <button className="bg-skyBlue text-white rounded border-0 cursor-pointer px-6 py-2" onClick={handleNextPage} disabled={questions.length<10} >
+        <button className="bg-indigo-600 text-white rounded border-0 cursor-pointer px-6 py-2 hover:bg-indigo-400" onClick={handleNextPage} disabled={questions.length<10} >
           Next
         </button>
       </div>

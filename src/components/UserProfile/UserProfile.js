@@ -56,7 +56,19 @@ const UserProfile = () => {
     fetchData();
   }, [token])
   
+  let medalColor = "";
+  let medalText = "";
 
+  if (user.reputation < 100) {
+    medalColor = "medalBronze";
+    medalText = "Bronze";
+  } else if (user.reputation >= 100 && user.reputation <= 500) {
+    medalColor = "medalSilver";
+    medalText = "Silver";
+  } else {
+    medalColor = "medalGold";
+    medalText = "Gold";
+  }
 
   return (
     <>
@@ -79,8 +91,8 @@ const UserProfile = () => {
           </div>
           <div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
             <div className="flex gap-2 pt-4 mx-auto items-start">
-              <GiStarMedal className="text-5xl text-medalGold" />
-              <p className="text-3xl mr-6 text-profileColor font-semibold">Bronze</p>
+              <GiStarMedal className={`text-5xl text-${medalColor}`} />
+              <p className="text-3xl mr-6 text-profileColor font-semibold">{medalText}</p>
             </div>
             
               {/* Reputation */}

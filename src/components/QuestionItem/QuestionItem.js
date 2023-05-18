@@ -1,6 +1,6 @@
 import React from "react";
-import { Avatar } from "@mui/material";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { BsPersonCircle } from "react-icons/bs";
+import { BsTriangleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const QuestionItem = ({ question }) => {
@@ -11,12 +11,12 @@ const QuestionItem = ({ question }) => {
         <div className="flex flex-col w-full rounded-lg p-4 shadow-myShadow">
           <div className="flex">
             <div className="question-container-left">
-              <div className="flex column text-black text-opacity-80">
+              <div className="flex flex-col text-black text-opacity-80">
                 <div className="flex flex-col mr-8 items-center px-[5px] py-[10px]">
-                  <Avatar />
+                  <BsPersonCircle className="text-4xl"/>
                 </div>
                 <div className="flex flex-col mr-8 items-center px-[5px] py-[10px]">
-                  <ExpandLessIcon />
+                  <BsTriangleFill className="opacity-80"/>
                   <p>{question.voteCount}</p>
                 </div>
               </div>
@@ -42,7 +42,7 @@ const QuestionItem = ({ question }) => {
                 </div>
                 <div className="flex items-end gap-5 justify-between text-sm">
                   {question.tags.map((tag) => (
-                    <div className="text-indigo-500 h-full">{tag}</div>
+                    <div className="text-indigo-800 h-full">{tag}</div>
                   ))}
                 </div>
               </div>
@@ -67,7 +67,7 @@ const QuestionItem = ({ question }) => {
 
                 <div className="flex items-center float-right h-full justify-between">
                   <Link to='/answersPage'>
-                    <button className="text-white bg-skyBlue text-[1.1rem] px-[10px] py-[8px] rounded border-none">Answer</button>
+                    <button className="text-white bg-indigo-600 text-lg px-[10px] py-[8px] rounded border-none hover:bg-indigo-300">Answer</button>
                   </Link>
                 </div>
               </div>
