@@ -1,5 +1,4 @@
 import React from "react";
-// import "./QuestionItem.css";
 import { Avatar } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Link } from "react-router-dom";
