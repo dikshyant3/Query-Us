@@ -31,7 +31,8 @@ const TextEditor = ({ handleQuestionText}) => {
     setValue(text);
     const plainText = stripHtml(text); // Strip HTML tags
     console.log(plainText);
-    handleQuestionText(plainText); // Pass the plain text to the parent component
+    handleQuestionText(plainText);
+     // Pass the plain text to the parent component
   };
   return (
     <div className="flex">

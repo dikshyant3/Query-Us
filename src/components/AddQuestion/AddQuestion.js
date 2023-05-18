@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "./AddQuestion.css";
-// import parse from 'html-react-parser'
 import TextEditor from "./TextEditor";
 import { TagsInput } from "react-tag-input-component";
 import { toast } from "react-toastify";

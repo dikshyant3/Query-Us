@@ -5,11 +5,10 @@ import TextEditor from "../AddQuestion/TextEditor";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
   const [question, setQuestion] = useState(null);
-  const [answerText,setAnswerText]=useState("");
+  const [answerText, setAnswerText] = useState("");
 
   // The below three lines of used to redirect a single question to answersPage
   let search = window.location.search;
@@ -18,7 +17,7 @@ const AnswersPage = () => {
 
   // console.log("DIKSHYANT")
   const url = `https://queryus-production.up.railway.app/question/${id}`;
-  const answerUrl=`https://queryus-production.up.railway.app/answer/add/${id}?answer=`
+  const answerUrl = `https://queryus-production.up.railway.app/answer/add/${id}`;
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -39,33 +38,31 @@ const AnswersPage = () => {
   if (!question) {
     return <div>Loading...</div>;
   }
- 
-  const handleAnswerText=(value)=>{
-    setAnswerText(value);
-  }
-  const handleSubmit=async(e)=>{
-    e.preventDefault();
-      try {
-        const res = await axios.post(
-          answerUrl,
-          {answer:answerText},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-          { withCredentials: true }
-        );
-        console.log(res.data);
-        toast.success("Answer added successfully!!!");
-        
-      } catch (error) {
-        console.log(error);
-      }
-      setAnswerText("");
-      console.log("hello");
-    } 
 
+  const handleAnswerText = (value) => {
+    setAnswerText(value);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        answerUrl,null,
+        { params: { answer: answerText } ,
+        
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res.data);
+      toast.success("Answer added successfully!!!");
+      setAnswerText("");
+    } catch (error) {
+      console.log(error);
+      toast.error("Error While Posting the answer.")
+    }
+    
+  };
 
   return (
     <div className="flex h-screen border-2 border-blue-500 mt-4">
@@ -142,9 +139,15 @@ const AnswersPage = () => {
         {/* REACT Quill */}
         <div className="flex flex-col mt-4">
           <h2 className="mb-4 text-2xl font-medium ">Your Answer</h2>
-          <TextEditor answer={answerText} handleAnswerText={handleAnswerText}></TextEditor>
+          <TextEditor
+            answerText={answerText}
+            handleQuestionText={handleAnswerText}
+          ></TextEditor>
           <div className="mt-4 border-2 border-red-600 ">
-            <button onClick={handleSubmit} className="px-[10px] py-[8px]  bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400">
+            <button
+              onClick={handleSubmit}
+              className="px-[10px] py-[8px]  bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
+            >
               Post Answer
             </button>
           </div>
