@@ -13,8 +13,6 @@
 }
 .ql-editor {
   display: flex;
-  /* position: relative; */
-  /* align-items: center; */
   width: 100% !important;
   height: 200px !important;
   overflow-y: scroll;

@@ -65,19 +65,19 @@ const AnswersPage = () => {
   };
 
   return (
-    <div className="flex h-screen border-2 border-blue-500 mt-4">
-      <div className="flex flex-col w-full max-w-screen-xl mx-auto">
+    <div className="flex border-2 border-blue-500 mt-4">
+      <div className="flex flex-col w-1/2  mx-auto">
         {/* heading part */}
-        <div className="flex flex-col border-b-2 " key={question.id}>
+        <div className="flex flex-col border-b-2" key={question.id}>
           <div className="flex flex-col border-b-2 border-gray-200 ">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between border-2 border-black">
               <p className="text-2xl font-medium text-black opacity-80">
                 {question.questionTitle}
               </p>
               <Link to="/addquestion">
                 <button
                   type="button"
-                  className="px-[10px] mt-2 py-[8px] rounded text-white text-sm font-light bg-indigo-600 hover:bg-indigo-400"
+                  className="px-[10px] py-[8px] rounded text-white text-sm font-light bg-indigo-600 hover:bg-indigo-400"
                 >
                   Ask Question
                 </button>
@@ -117,7 +117,7 @@ const AnswersPage = () => {
           {question.answers.map((answer) => (
             <div className="mt-4 flex flex-col" key={answer.id}>
               <div className="border-b-2 border-gray-200">
-                <p className="max-w-[45%]">{answer.answer}</p>
+                <p className="max-w-1/2">{answer.answer}</p>
                 <div className="flex mr-4 mt-3">
                   <div className="flex items-center mr-10 ">
                     <p className="text-sm font-thin opacity-60 pr-2">
@@ -137,7 +137,7 @@ const AnswersPage = () => {
           ))}
         </div>
         {/* REACT Quill */}
-        <div className="flex flex-col mt-4">
+        <div className="flex flex-col mt-4 w-full">
           <h2 className="mb-4 text-2xl font-medium ">Your Answer</h2>
           <TextEditor
             answerText={answerText}
@@ -146,7 +146,7 @@ const AnswersPage = () => {
           <div className="mt-4 border-2 border-red-600 ">
             <button
               onClick={handleSubmit}
-              className="px-[10px] py-[8px]  bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
+              className="px-[10px] py-[8px] float-right mr-32 bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
             >
               Post Answer
             </button>
