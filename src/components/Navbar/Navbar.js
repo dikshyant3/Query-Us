@@ -1,13 +1,11 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
-// import './Navbar.css';
 import Logo from "../../images/Logo2.png";
 import { GrSearch } from "react-icons/gr";
 import { RiStarSLine } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
-// import StarsIcon from '@mui/icons-material/Stars';
-// import { Avatar } from '@mui/material';
+
 
 const Navbar = () => {
   const [user,setUser]=useState({});
@@ -64,7 +62,6 @@ const Navbar = () => {
               <BsPersonCircle className="h-6 w-6" />
             </Link>
           </div>
-          {/* <Avatar sx={{width:24,height:24}}/> */}
         </div>
       </div>
     </>
