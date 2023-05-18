@@ -40,11 +40,13 @@ const Navbar = () => {
   return (
     <>
       <div className="flex justify-between bg-white items-center sticky top-0 h-[70px] z-10 cursor-pointer ">
+      <Link to="/">
         <img
           src={Logo}
           alt="Header-Logo"
           className="object-contain h-12 m-[20px] mr-8"
         />
+        </Link>
 
         <div className="flex items-center w-[60%] p-[10px] h-[40px] rounded border-none outline-0 ring-0 bg-[#f5f5f5]">
           <GrSearch style={{ fill: "slate" }} />
@@ -56,7 +58,6 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-between ml-4">
           {/* Reputation */}
-          {/* <StarsIcon style={{fill:"#fff",opacity:0.8}}/> */}
           <div className="pr-6 flex items-center">
             <RiStarSLine className="h-6 w-6" />
             <p className="px-2 text-indigo-700 font-bold">{userReputation}</p>
