@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import TextEditor from "../AddQuestion/TextEditor";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import AnswerUpvote from "./AnswerUpvote";
 
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
@@ -65,13 +66,13 @@ const AnswersPage = () => {
   };
 
   return (
-    <div className="flex border-2 border-blue-500 mt-4">
+    <div className="flex mt-4">
       <div className="flex flex-col w-1/2  mx-auto">
         {/* heading part */}
         <div className="flex flex-col border-b-2" key={question.id}>
           <div className="flex flex-col border-b-2 border-gray-200 ">
-            <div className="flex items-center justify-between border-2 border-black">
-              <p className="text-2xl font-medium text-black opacity-80">
+            <div className="flex items-center w-full justify-between">
+              <p className="text-2xl w-3/4 font-medium text-black opacity-80">
                 {question.questionTitle}
               </p>
               <Link to="/addquestion">
@@ -112,10 +113,14 @@ const AnswersPage = () => {
         </div>
 
         {/* Answers */}
-        <div className="mt-2">
+        <div className="mt-2 border-2 border-red-500">
           <p className="text-2xl font-medium">{question.answerCount} Answers</p>
           {question.answers.map((answer) => (
-            <div className="mt-4 flex flex-col" key={answer.id}>
+            <div className="flex items-center gap-2">
+            <div className="border-2 border-blue-500">
+              <AnswerUpvote count={answer.voteCount} id={answer.id}/>
+            </div>
+            <div className="mt-4 flex flex-col border-2 border-black" key={answer.id}>
               <div className="border-b-2 border-gray-200">
                 <p className="max-w-1/2">{answer.answer}</p>
                 <div className="flex mr-4 mt-3">
@@ -134,6 +139,7 @@ const AnswersPage = () => {
                 </div>
               </div>
             </div>
+            </div>
           ))}
         </div>
         {/* REACT Quill */}
@@ -143,10 +149,10 @@ const AnswersPage = () => {
             answerText={answerText}
             handleQuestionText={handleAnswerText}
           ></TextEditor>
-          <div className="mt-4 border-2 border-red-600 ">
+          <div className="mt-4">
             <button
               onClick={handleSubmit}
-              className="px-[10px] py-[8px] float-right mr-32 bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
+              className="px-[10px] py-[8px] float-right bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
             >
               Post Answer
             </button>

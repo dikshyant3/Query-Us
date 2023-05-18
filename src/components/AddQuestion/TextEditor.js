@@ -36,7 +36,7 @@ const TextEditor = ({ handleQuestionText}) => {
   };
   return (
     <div className="flex">
-      <div className="max-w-3/4">
+      <div className="w-full">
         <ReactQuill
           modules={modules}
           className="bg-white border border-gray-300 rounded p-2 h-[auto] overflow-y-scroll resize-y w-full flex flex-col "

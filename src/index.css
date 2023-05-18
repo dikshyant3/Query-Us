@@ -9,7 +9,7 @@
 }
 
 .ql-toolbar {
-  width: 600px !important;
+  width: 100% !important;
 }
 .ql-editor {
   display: flex;

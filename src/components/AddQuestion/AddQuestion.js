@@ -51,7 +51,7 @@ const AddQuestion = () => {
 
   return (
     <div className="flex w-full p-4 bg-gray-100">
-      <div className="flex flex-col relative left-[20%]">
+      <div className="flex flex-col max-w-screen-md relative left-[20%]">
         <h2 className="mt-8 text-2xl font-extrabold mb-4">Ask a question</h2>
         <div className="flex flex-col items-center mb-4">
           <div className="items-start bg-white p-4 rounded w-full">
