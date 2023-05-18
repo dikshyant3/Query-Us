@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 const Sidebar = () => {
-  const [tags,setTags]=useState('');
+  const [tags,setTags]=useState([]);
   const token=localStorage.getItem('token');
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Sidebar = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log("tags:",res.data);
+        console.log(res.data);
 
       setTags(res.data);
 
@@ -31,7 +31,7 @@ const Sidebar = () => {
     fetchData();
   }, [token])
   return (
-    <div className="flex flex-col fixed left-0 top-0 w-[350px] bg-[#f5f5f5] border-r-2 border-gray-300">
+    <div className="flex flex-col sticky top-0 w-[350px] bg-[#f5f5f5] border-r-2 border-gray-300">
       <div className="mx-auto mt-6 mb-4 ">
         <Link to="/addquestion">
           <button className="px-[10px] py-[8px] bg-indigo-500 text-white text-base rounded-xl cursor-pointer">
@@ -43,11 +43,11 @@ const Sidebar = () => {
         <div className="flex flex-col mx-auto">
           <div className="flex items-start">
             <AiFillHome className="text-xl text-indigo-500"/>
-            <Link to="/" className="pl-2">Home</Link>
+            <Link to="/" className="pl-2 opacity-60 hover:opacity-100">Home</Link>
           </div>
           <div className="flex pt-4 items-start">
             <FaUserCircle className="text-xl text-indigo-500"/>
-            <Link to="/userProfile" className="pl-2">User Profile</Link>
+            <Link to="/userProfile" className="pl-2 opacity-60 hover:opacity-100">User Profile</Link>
           </div>
         </div>
       </div>

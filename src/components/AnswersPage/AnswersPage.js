@@ -63,6 +63,19 @@ const AnswersPage = () => {
     }
   };
 
+  const sortedAnswers = question.answers
+    .slice()
+    .sort((a, b) => b.voteCount - a.voteCount);
+
+  // const formatViewCount = (count) => {
+  //   if (count >= 500000) {
+  //     return "500k+";
+  //   } else if (count >= 1000) {
+  //     return Math.floor(count / 1000) + "k";
+  //   }
+  //   return count.toString();
+  // };
+
   return (
     <>
       <Navbar />
@@ -103,9 +116,13 @@ const AnswersPage = () => {
             </div>
             {/* Question Text Or Body */}
             <div className="flex items-center gap-8 border-b-2 border-gray-200">
-                      <div className="flex flex-col">
-                        <QuestionUpvote count={question.voteCount} upVoted={question.upVoted} id={id} />
-                      </div>
+              <div className="flex flex-col">
+                <QuestionUpvote
+                  count={question.voteCount}
+                  upVoted={question.upVoted}
+                  id={id}
+                />
+              </div>
               <div className="flex flex-col">
                 <p className="text-gray-800 mt-2">{question.questionText}</p>
                 <div className="flex items-center mb-3">
@@ -122,43 +139,43 @@ const AnswersPage = () => {
             <p className="text-2xl font-medium">
               {question.answerCount} Answers
             </p>
-            {question.answers
+
+            {/* question.answers
               .sort((a, b) => {
-                return a.voteCount > b.voteCount;
-              })
-              .map((answer) => (
-                <div
-                  key={answer.id}
-                  className="flex items-center border-b-2 border-gray-200 gap-8"
-                >
-                  <div className="flex flex-col ">
-                    <AnswerUpvote
-                      count={answer.voteCount}
-                      id={answer.id}
-                      upVoted={answer.upVoted}
-                    />
-                  </div>
-                  <div className="mt-4 flex flex-col w-full" key={answer.id}>
-                    <div className="w-full ">
-                      <p className="max-w-1/2">{answer.answer}</p>
-                      <div className="flex mr-4 mt-3">
-                        <div className="flex items-center mr-10 ">
-                          <p className="text-sm font-thin opacity-60 pr-2">
-                            Answered{" "}
-                          </p>
-                          <p className="text-sm font-thin ">
-                            {answer.timestamp[0] +
-                              "/" +
-                              answer.timestamp[1] +
-                              "/" +
-                              answer.timestamp[2]}
-                          </p>
-                        </div>
+                return a.voteCount > b.voteCount; */}
+            {sortedAnswers.map((answer) => (
+              <div
+                key={answer.id}
+                className="flex items-center border-b-2 border-gray-200 gap-8"
+              >
+                <div className="flex flex-col ">
+                  <AnswerUpvote
+                    count={answer.voteCount}
+                    id={answer.id}
+                    upVoted={answer.upVoted}
+                  />
+                </div>
+                <div className="mt-4 flex flex-col w-full" key={answer.id}>
+                  <div className="w-full ">
+                    <p className="max-w-1/2">{answer.answer}</p>
+                    <div className="flex mr-4 mt-3">
+                      <div className="flex items-center mr-10 ">
+                        <p className="text-sm font-thin opacity-60 pr-2">
+                          Answered{" "}
+                        </p>
+                        <p className="text-sm font-thin ">
+                          {answer.timestamp[0] +
+                            "/" +
+                            answer.timestamp[1] +
+                            "/" +
+                            answer.timestamp[2]}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
           {/* REACT Quill */}
           <div className="flex flex-col mt-4 w-full">
