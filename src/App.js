@@ -8,6 +8,7 @@ import AddQuestion from "./components/AddQuestion/AddQuestion";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import AnswersPage from "./components/AnswersPage/AnswersPage";
+import UserProfile from "./components/UserProfile/UserProfile";
 // import Questions from "./components/Questions/Questions";
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
           <Route path="/addquestion" element={<AddQuestion />} />
 
           <Route path="/answersPage" element={<AnswersPage />} />
+
+          <Route path="/userProfile" element={<UserProfile />} />
 
         </Routes>
       </BrowserRouter>

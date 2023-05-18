@@ -29,6 +29,7 @@ const Questions = () => {
     };
     fetchData();
   }, [currentPage,token]);
+  
 
   const handlePrevPage = async () => {
     const url = `https://queryus-production.up.railway.app/question/all?pageNo=${
