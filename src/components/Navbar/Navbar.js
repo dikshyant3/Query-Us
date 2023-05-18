@@ -8,32 +8,38 @@ import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
-  const [user,setUser]=useState({});
-  const token=localStorage.getItem('token');
+  const [userReputation,setUserReputation]=useState(0);
+  const [userName,setUserName]=useState('');
   useEffect(() => {
-    const fetchData = async () => {
-      const userUrl = `https://queryus-production.up.railway.app/user/me`;
-      try {
-        const res = await axios.get(userUrl,{
-          headers:{
-            'Authorization':`Bearer ${token}`,
-          }
-        });
-        console.log(res.data);
+ 
+    const token=localStorage.getItem('token');
+
+      const fetchData = async () => {
+        const userUrl = `https://queryus-production.up.railway.app/user/me`;
+        try {
+          const res = await axios.get(userUrl,{
+            headers:{
+              'Authorization':`Bearer ${token}`,
+            }
+          });
+          console.log(res.data);
+          
+          setUserReputation(res.data.reputation);
+          setUserName(res.data.firstName)
+          localStorage.setItem('currentUser',JSON.stringify(res.data))
+          console.log('getItem',localStorage.getItem('currentUser'))
+          
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      
+      fetchData(); 
         
-        setUser(res.data);
-        localStorage.setItem("currentUser",user)
-        console.log('getItem',localStorage.getItem('currentUser'))
-        
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [user,token]);
+  }, [userReputation,userName]);
   return (
     <>
-      <div className="flex justify-between items-center sticky top-0 h-[70px] z-10 cursor-pointer ">
+      <div className="flex justify-between bg-white items-center sticky top-0 h-[70px] z-10 cursor-pointer ">
         <img
           src={Logo}
           alt="Header-Logo"
@@ -53,12 +59,12 @@ const Navbar = () => {
           {/* <StarsIcon style={{fill:"#fff",opacity:0.8}}/> */}
           <div className="pr-6 flex items-center">
             <RiStarSLine className="h-6 w-6" />
-            <p className="px-2 text-indigo-700 font-bold">{user.reputation}</p>
+            <p className="px-2 text-indigo-700 font-bold">{userReputation}</p>
           </div>
           {/* UserProfile */}
           <div className="mr-10">
             <Link to="/userProfile" className="flex text-black cursor-pointer">
-              <p className="px-2 text-indigo-700 font-bold">{user.firstName}</p>
+              <p className="px-2 text-indigo-700 font-bold">{userName}</p>
               <BsPersonCircle className="h-6 w-6" />
             </Link>
           </div>

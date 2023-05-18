@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import QuestionItem from "../QuestionItem/QuestionItem";
-// import "./Questions.css";
-
 
 
 const Questions = () => {
@@ -67,7 +65,8 @@ const Questions = () => {
   };
 
   return (
-    <div className="flex flex-col w-full bg-gray-200">
+    <>
+    <div className="flex flex-col w-full bg-[#f5f5f5]">
       {questions.map((question) => (
         <QuestionItem key={question.id} question={question} />
       ))}
@@ -81,6 +80,7 @@ const Questions = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
