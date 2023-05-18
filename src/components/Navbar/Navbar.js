@@ -1,33 +1,33 @@
 import React from 'react';
-import './Navbar.css';
-import Logo from '../../images/Logo.png';
-import SearchIcon from '@mui/icons-material/Search';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import StarsIcon from '@mui/icons-material/Stars';
-import { Avatar } from '@mui/material';
+// import './Navbar.css';
+import Logo from '../../images/Logo2.png';
+import {GrSearch} from 'react-icons/gr';
+import {RiStarSLine} from 'react-icons/ri';
+import {BsPersonCircle} from 'react-icons/bs'
+// import StarsIcon from '@mui/icons-material/Stars';
+// import { Avatar } from '@mui/material';
+
 
 
 const Navbar = () => {
   return (
     <>
         
-            <div className="navbar__container">
-                <img src={Logo} alt="Header-Logo" className='navbar__logo'/>
+            <div className="flex justify-between items-center sticky top-0 h-[70px] z-10 cursor-pointer">
+                <img src={Logo} alt="Header-Logo" className='object-contain h-12 m-[20px]'/>
                 
-                <div className="navbar__center">
-                    <input type="text" placeholder='Search'/>
-                    <SearchIcon style={{fill:'#fff'}}/>
+                <div className="flex items-center flex-1 min-w-fit p-[10px] h-[40px] rounded border-none outline-0 ring-0 bg-[#f5f5f5]">
+                    <GrSearch style={{fill:'slate'}}/>
+                    <input type="text" placeholder='Search' className='w-full h-[40px] outline-none border-0 ring-0 focus:border-0 focus:ring-0 bg-[#f5f5f5]'/>
                 </div>
-                <div className="navbar__right">
-                    {/* Dark/Light Theme */}
-                    <DarkModeIcon style={{fill:'#fff',opacity:0.8}}/>
-                    {/* Notification */}
-                    <NotificationsIcon style={{fill:'#fff',opacity:0.8}}/>
+                <div className="flex items-center justify-between">
                     {/* Reputation */}
-                    <StarsIcon style={{fill:"#fff",opacity:0.8}}/>
+                    {/* <StarsIcon style={{fill:"#fff",opacity:0.8}}/> */}
+                    <RiStarSLine/>
+
                     {/* UserProfile */}
-                    <Avatar sx={{width:24,height:24}}/>
+                    <BsPersonCircle/>
+                    {/* <Avatar sx={{width:24,height:24}}/> */}
                 </div>
             </div>
         
