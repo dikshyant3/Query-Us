@@ -1,27 +1,36 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import TextEditor from "../AddQuestion/TextEditor";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import AnswerUpvote from "./AnswerUpvote";
 import Navbar from "../Navbar/Navbar";
 // import image from "../../images/question-bgremoved.png";
 import QuestionUpvote from "./QuestionUpvote";
 import Utils from "../Utils/Utils";
+import Sidebar from "../Sidebar/Sidebar";
+import { Link } from "react-router-dom";
 
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
   const [question, setQuestion] = useState(null);
   const [answerText, setAnswerText] = useState("");
+  const [showInput, setShowInput] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   // The below three lines of used to redirect a single question to answersPage
   let search = window.location.search;
   const params = new URLSearchParams(search);
   const id = params.get("query");
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+  const navigate=useNavigate()
 
   // console.log("DIKSHYANT")
   const url = `https://queryus-production.up.railway.app/question/${id}`;
   const answerUrl = `https://queryus-production.up.railway.app/answer/add/${id}`;
+  const duplicateUrl = `https://queryus-production.up.railway.app/question/duplicate/${id}`;
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -78,26 +87,67 @@ const AnswersPage = () => {
   //   return count.toString();
   // };
 
+  const handleDuplicate = () => {
+    setShowInput(!showInput);
+  };
+
+  const handleInputChange = (evt) => {
+    setInputValue(evt.target.value);
+  };
+
+  const handleInputSubmit = async (e) => {
+    e.preventDefault();
+    const question =
+      inputValue.split("=").length === 2
+        ? "/question/" + inputValue.split("=")[1]
+        : "";
+    const res = await axios.post(duplicateUrl, null, {
+      params: { link: question },
+
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(res.data);
+  };
+  const handleKeyPressed = (event) => {
+    if (event.key === "Enter") {
+      handleInputSubmit();
+    }
+    console.log(event.key);
+  };
+  const handleDelete=async()=>{
+    const url = `https://queryus-production.up.railway.app/question/delete/${id}` 
+    try{
+      const res = await axios.delete(url,{
+        headers:{
+          Authorization: `Bearer ${token}`,
+        }
+      })
+      console.log(res.data)
+      navigate("/")
+    }catch(error){
+      console.log(error)
+    }
+  };
+
+  const handleEdit=()=>{
+
+  };
+  console.log(currentUser.id+"    "+question.userId)
   return (
     <>
       <Navbar />
-      <div className="flex mt-4">
+      <div className="flex bg-searchBar">
+        <Sidebar />
         <div className="flex flex-col w-1/2 z-10 mx-auto">
           {/* heading part */}
           <div className="flex flex-col" key={question.id}>
             <div className="flex flex-col border-b-2 border-gray-200 ">
-              <div className="flex items-center w-full justify-between">
+              <div className="flex items-center mt-4 w-full justify-between">
                 <p className="text-2xl w-3/4 font-medium text-black opacity-80">
                   {question.questionTitle}
                 </p>
-                <Link to="/addquestion">
-                  <button
-                    type="button"
-                    className="px-[10px] py-[8px] rounded text-white text-sm font-light bg-indigo-600 hover:bg-indigo-400"
-                  >
-                    Ask Question
-                  </button>
-                </Link>
               </div>
               <div className="flex items-center mb-3">
                 <div className="flex items-center mr-10 ">
@@ -117,9 +167,8 @@ const AnswersPage = () => {
               </div>
             </div>
             {/* Question Text Or Body */}
-            <div className="flex flex-col w-full items-center justify-end gap-8 border-b-2 border-gray-200">
-              
-              <div className="flex gap-8">
+            <div className="flex flex-col w-full items-center gap-8 border-b-2 border-gray-200">
+              <div className="flex gap-8 w-full justify-start items-center">
                 <div className="flex flex-col mt-3">
                   <QuestionUpvote
                     count={question.voteCount}
@@ -127,19 +176,68 @@ const AnswersPage = () => {
                     id={id}
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <p className="text-gray-800 mt-2">{question.questionText}</p>
-                  <div className="flex items-center mb-3">
-                    {question.tags.map((tag) => (
-                      <div className="mt-4 mr-4 text-indigo-600">{tag}</div>
-                    ))}
+                  <div className="flex items-end justify-between">
+                    <div className="flex items-center">
+                      {question.tags.map((tag) => (
+                        <div className="mr-3 text-indigo-600">{tag}</div>
+                      ))}
+                    </div>
+                    <div className="flex mb-1">
+                      <Utils id={question.userId} />
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-center">
+                  {question.userId===currentUser.id && (
+                    <div className="flex gap-4 items-center">
+                      <button
+                        type="button"
+                        className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
+                        onClick={handleEdit}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
+                        onClick={handleDelete}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+                    {question.originalQuestionId === 0 ? (
+                      <div className="flex">
+                        {showInput && (
+                          <form onSubmit={handleInputSubmit}>
+                            <input
+                              type="text"
+                              value={inputValue}
+                              onChange={handleInputChange}
+                              onKeyDown={handleKeyPressed}
+                              className="outline-none rounded border-black opacity-40 ring-0 h-[20px] focus:border-indigo-500"
+                            />
+                            <button type="submit"></button>
+                          </form>
+                        )}
+                        <button
+                          onClick={handleDuplicate}
+                          className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
+                        >
+                          Mark Duplicate
+                        </button>
+                      </div>
+                    ) : (
+                      <Link
+                        to={`/answersPage?query=${question.originalQuestionId}`}
+                      >
+                        Original Question
+                      </Link>
+                    )}
                   </div>
                 </div>
-                <div className="flex mb-2 items-end">
-                <Utils id={question.userId} />
               </div>
-              </div>
-              
             </div>
           </div>
 

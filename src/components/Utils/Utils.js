@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Utils = ({ id }) => {
-  const [postingUserName, setPostingUserName] = useState('');
+  const [postingUserName, setPostingUserName] = useState("");
   const [postingUserReputation, setPostingReputation] = useState(0);
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const fetchUserDetails = async () => {
@@ -15,9 +15,9 @@ const Utils = ({ id }) => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log('userUtils',res.data)
+        console.log("userUtils", res.data);
         setPostingUserName(res.data.firstName);
-        setPostingReputation(res.data.reputation)
+        setPostingReputation(res.data.reputation);
       } catch (error) {
         console.log(error);
       }
@@ -25,17 +25,16 @@ const Utils = ({ id }) => {
     fetchUserDetails();
   }, [id]);
 
-
-  return (<>
-     <div className="flex gap-2 items-center rounded px-[4px] py-[2px] bg-gray-200">
-       <div className="flex text-indigo-800 text-xs">
-        {postingUserName}
-       </div>
-       <div className="flex text-xs font-semibold text-medalBronze">
-        {postingUserReputation}
-       </div>
-     </div>
-  </>);
+  return (
+    <>
+      <div className="flex gap-2 items-center rounded px-[4px] py-[2px] bg-gray-200">
+        <div className="flex text-indigo-800 text-xs">{postingUserName}</div>
+        <div className="flex text-xs font-semibold text-medalBronze">
+          {postingUserReputation}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Utils;

@@ -100,14 +100,14 @@ const AddQuestion = () => {
           <div className="px-4">
             <button
               onClick={handleSubmit}
-              className="px-[10px] py-[8px] float-right  bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
+              className="px-[10px] py-[8px] float-right bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
             >
               Post Question
             </button>
           </div>
         </div>
         {/* image section */}
-        <div className="flex ml-auto bg-transparent w-1/4 border-2 border-green-500">
+        <div className="flex ml-auto bg-transparent w-1/4">
           <img src={image} alt="answerIllustration" className="h-auto max-h-[350px] w-full" />
         </div>
       </div>

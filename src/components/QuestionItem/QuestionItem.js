@@ -2,6 +2,7 @@ import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsTriangleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Utils from "../Utils/Utils";
 
 const QuestionItem = ({ question }) => {
   
@@ -65,10 +66,8 @@ const QuestionItem = ({ question }) => {
                   </div>
                 </div>
 
-                <div className="flex items-center float-right h-full justify-between">
-                  <Link to='/answersPage'>
-                    <button className="text-white bg-indigo-600 text-lg px-[10px] py-[8px] rounded border-none hover:bg-indigo-300">Answer</button>
-                  </Link>
+                <div className="flex items-center justify-between mt-4">
+                  <Utils id={question.userId}/>
                 </div>
               </div>
             </div>
