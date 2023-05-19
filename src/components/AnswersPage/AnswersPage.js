@@ -118,6 +118,7 @@ const AnswersPage = () => {
             </div>
             {/* Question Text Or Body */}
             <div className="flex flex-col w-full items-center justify-end gap-8 border-b-2 border-gray-200">
+              
               <div className="flex gap-8">
                 <div className="flex flex-col mt-3">
                   <QuestionUpvote
@@ -134,10 +135,11 @@ const AnswersPage = () => {
                     ))}
                   </div>
                 </div>
-              </div>
-              <div className="flex mb-2 ml-96 justify-end">
+                <div className="flex mb-2 items-end">
                 <Utils id={question.userId} />
               </div>
+              </div>
+              
             </div>
           </div>
 
