@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import AnswerUpvote from "./AnswerUpvote";
 import Navbar from "../Navbar/Navbar";
+// import image from "../../images/question-bgremoved.png";
 import QuestionUpvote from "./QuestionUpvote";
+import Utils from "../Utils/Utils";
 
 const AnswersPage = () => {
   const token = localStorage.getItem("token");
@@ -80,7 +82,7 @@ const AnswersPage = () => {
     <>
       <Navbar />
       <div className="flex mt-4">
-        <div className="flex flex-col w-1/2  mx-auto">
+        <div className="flex flex-col w-1/2 z-10 mx-auto">
           {/* heading part */}
           <div className="flex flex-col" key={question.id}>
             <div className="flex flex-col border-b-2 border-gray-200 ">
@@ -115,21 +117,26 @@ const AnswersPage = () => {
               </div>
             </div>
             {/* Question Text Or Body */}
-            <div className="flex items-center gap-8 border-b-2 border-gray-200">
-              <div className="flex flex-col">
-                <QuestionUpvote
-                  count={question.voteCount}
-                  upVoted={question.upVoted}
-                  id={id}
-                />
-              </div>
-              <div className="flex flex-col">
-                <p className="text-gray-800 mt-2">{question.questionText}</p>
-                <div className="flex items-center mb-3">
-                  {question.tags.map((tag) => (
-                    <div className="mt-4 mr-4 text-indigo-600">{tag}</div>
-                  ))}
+            <div className="flex flex-col w-full items-center justify-end gap-8 border-b-2 border-gray-200">
+              <div className="flex gap-8">
+                <div className="flex flex-col mt-3">
+                  <QuestionUpvote
+                    count={question.voteCount}
+                    upVoted={question.upVoted}
+                    id={id}
+                  />
                 </div>
+                <div className="flex flex-col">
+                  <p className="text-gray-800 mt-2">{question.questionText}</p>
+                  <div className="flex items-center mb-3">
+                    {question.tags.map((tag) => (
+                      <div className="mt-4 mr-4 text-indigo-600">{tag}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex mb-2 ml-96 justify-end">
+                <Utils id={question.userId} />
               </div>
             </div>
           </div>
@@ -139,10 +146,6 @@ const AnswersPage = () => {
             <p className="text-2xl font-medium">
               {question.answerCount} Answers
             </p>
-
-            {/* question.answers
-              .sort((a, b) => {
-                return a.voteCount > b.voteCount; */}
             {sortedAnswers.map((answer) => (
               <div
                 key={answer.id}
@@ -158,7 +161,7 @@ const AnswersPage = () => {
                 <div className="mt-4 flex flex-col w-full" key={answer.id}>
                   <div className="w-full ">
                     <p className="max-w-1/2">{answer.answer}</p>
-                    <div className="flex mr-4 mt-3">
+                    <div className="flex mr-4 items-center justify-between mb-2 mt-3">
                       <div className="flex items-center mr-10 ">
                         <p className="text-sm font-thin opacity-60 pr-2">
                           Answered{" "}
@@ -170,6 +173,10 @@ const AnswersPage = () => {
                             "/" +
                             answer.timestamp[2]}
                         </p>
+                      </div>
+                      <div className="flex justify-between">
+                        {/* user tag */}
+                        <Utils id={answer.userId} />
                       </div>
                     </div>
                   </div>
@@ -194,6 +201,10 @@ const AnswersPage = () => {
             </div>
           </div>
         </div>
+        {/* image section */}
+        {/* <div className="flex w-[350px] h-[350px] top-0 bg-transparent">
+          <img src={image} alt="answerIllustration" />
+        </div> */}
       </div>
     </>
   );

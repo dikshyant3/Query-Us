@@ -52,7 +52,7 @@ const Navbar = () => {
   }, [userReputation, userName]);
   return (
     <>
-      <div className="flex justify-between bg-white items-center sticky top-0 h-[70px] z-10 cursor-pointer ">
+      <div className="flex justify-between bg-white items-center sticky top-0 h-[70px] z-20 cursor-pointer ">
         <Link to="/">
           <img
             src={Logo}

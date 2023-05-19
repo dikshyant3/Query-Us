@@ -5,6 +5,7 @@ import TextEditor from "./TextEditor";
 import { TagsInput } from "react-tag-input-component";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
+import image from '../../images/question-bgremoved.png'
 
 const AddQuestion = () => {
   const token = localStorage.getItem("token");
@@ -55,7 +56,7 @@ const AddQuestion = () => {
       <Navbar />
 
       <div className="flex w-full p-4 bg-gray-100">
-        <div className="flex flex-col max-w-screen-md relative left-[20%]">
+        <div className="flex flex-col max-w-screen-md w-3/4 relative left-[20%] z-10">
           <h2 className="mt-8 text-2xl font-extrabold mb-4">Ask a question</h2>
           <div className="flex flex-col items-center mb-4">
             <div className="items-start bg-white p-4 rounded w-full">
@@ -105,9 +106,10 @@ const AddQuestion = () => {
             </button>
           </div>
         </div>
-        {/* </div> */}
-        {/* <button className="btn-discard">Cancel</button> */}
-        {/* </div> */}
+        {/* image section */}
+        <div className="flex ml-auto bg-transparent w-1/4 border-2 border-green-500">
+          <img src={image} alt="answerIllustration" className="h-auto max-h-[350px] w-full" />
+        </div>
       </div>
     </>
   );
