@@ -132,6 +132,7 @@ const AnswersPage = () => {
   };
 
   const handleEdit=()=>{
+    navigate(`/edit?query=${id}`)
 
   };
   console.log(currentUser.id+"    "+question.userId)

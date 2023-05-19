@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { TagsInput } from "react-tag-input-component";
-import Navbar from "../components/Navbar/Navbar";
-import TextEditor from "../components/AddQuestion/TextEditor";
+import Navbar from "../Navbar/Navbar";
+import TextEditor from "../AddQuestion/TextEditor";
+import { toast } from "react-toastify";
+
 
 const EditQuestions = () => {
   const token = localStorage.getItem("token");
   const [tags, setTags] = useState([]);
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionText, setQuestionText] = useState("");
-  const [question, setQuestion] = useState(null);
 
   let search = window.location.search;
   const params = new URLSearchParams(search);
@@ -17,15 +19,20 @@ const EditQuestions = () => {
 
   const url = `https://queryus-production.up.railway.app/question/${id}`;
 
+  const navigate=useNavigate();
+
   useEffect(() => {
-    const fetchQuestion = async () => {
+    const fetchQuestion =  async() => {
       try {
         const res = await axios.get(url, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        setQuestion(res.data);
+        setQuestionText(res.data.questionText)
+        setQuestionTitle(res.data.questionTitle)
+        setTags(res.data.tags)
+        console.log(res.data.questionText)
       } catch (error) {
         console.log(error);
       }
@@ -33,12 +40,45 @@ const EditQuestions = () => {
     fetchQuestion();
   }, [token, url]);
 
-  const handleSubmit=()=>{
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    const editUrl=`https://queryus-production.up.railway.app/question/update/${id}`
+    if (questionTitle !== "" && questionText !== "") {
+      const bodyJSON = {
+        questionTitle: questionTitle,
+        questionText: questionText,
+        tags: tags,
+      };
+      try {
+        const res = await axios.put(
+          editUrl,
+          bodyJSON,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        console.log(res.data);
+        toast.success("Question edited successfully!!!");
+        navigate(`/answersPage?query=${id}`);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      toast.error("Questions Not added!!!");
+    }
 
   }
 
-  const handleQuestionText=()=>{}
+  const handleQuestionText=(text)=>{
+  setQuestionText(text)
 
+  }
+  console.log("The question passed to editor",questionText)
+  if(questionText===''){
+    return (<div>Loading...</div>)
+  }
   return (
     <>
       <Navbar />

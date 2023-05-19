@@ -6,8 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import AddQuestion from "./components/AddQuestion/AddQuestion";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import AnswersPage from "./components/AnswersPage/AnswersPage";
+import EditPage from "./components/EditQA/EditQuestions";
 import UserProfile from "./components/UserProfile/UserProfile";
 // import Questions from "./components/Questions/Questions";
 
@@ -28,6 +29,9 @@ function App() {
           <Route path="/addquestion" element={<AddQuestion />} />
 
           <Route path="/answersPage" element={<AnswersPage />} />
+
+          <Route path="/edit" element={<EditPage/>} />
+
 
           <Route path="/userProfile" element={<UserProfile />} />
 

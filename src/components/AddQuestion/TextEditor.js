@@ -24,9 +24,8 @@ const stripHtml = (html) => {
   return tempElement.textContent || tempElement.innerText || "";
 };
 
-const TextEditor = ({ handleQuestionText}) => {
-  const [value, setValue] = useState("");
-
+const TextEditor = ({questionText, handleQuestionText}) => {
+  const [value, setValue] = useState(questionText);
   const handleChange = (text) => {
     setValue(text);
     const plainText = stripHtml(text); // Strip HTML tags
@@ -34,6 +33,7 @@ const TextEditor = ({ handleQuestionText}) => {
     handleQuestionText(plainText);
      // Pass the plain text to the parent component
   };
+  console.log("The value is:",value)
   return (
     <div className="flex">
       <div className="w-full">
