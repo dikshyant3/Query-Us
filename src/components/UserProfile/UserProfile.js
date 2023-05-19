@@ -76,7 +76,7 @@ const UserProfile = () => {
 
       <div className="flex mt-14">
         <div className="flex flex-col gap-12 w-1/5">
-          <div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
+          <div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[15.5rem] h-[14.8rem] pt-4">
             <FaUserTie className="text-white text-8xl mx-auto" />
             <div className="flex flex-col items-center pt-4">
               {/* Role */}
