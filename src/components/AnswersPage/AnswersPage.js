@@ -40,6 +40,7 @@ const AnswersPage = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(res.data)
         setQuestion(res.data);
       } catch (error) {
         console.log(error);
@@ -133,6 +134,24 @@ const AnswersPage = () => {
 
   const handleEdit=()=>{
     navigate(`/edit?query=${id}`)
+
+  };
+  const handleAnswerEdit=()=>{
+
+  };
+  const handleAnswerDelete=async(ansId)=>{
+    const url = `https://queryus-production.up.railway.app/answer/delete/${ansId}` 
+    try{
+      const res = await axios.delete(url,{
+        headers:{
+          Authorization: `Bearer ${token}`,
+        }
+      })
+      console.log(res.data)
+      // what to do after deleting an answer
+    }catch(error){
+      console.log(error)
+    }
 
   };
   console.log(currentUser.id+"    "+question.userId)
@@ -280,6 +299,26 @@ const AnswersPage = () => {
                         <Utils id={answer.userId} />
                       </div>
                     </div>
+                    <div className="flex gap-4 items-center">
+                  {answer.userId===currentUser.id && (
+                    <div className="flex gap-4 items-center">
+                      <button
+                        type="button"
+                        className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
+                        onClick={handleAnswerEdit}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
+                        onClick={()=>handleAnswerDelete(answer.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+                  </div>
                   </div>
                 </div>
               </div>
@@ -289,7 +328,7 @@ const AnswersPage = () => {
           <div className="flex flex-col mt-4 w-full">
             <h2 className="mb-4 text-2xl font-medium ">Your Answer</h2>
             <TextEditor
-              answerText={answerText}
+              txt={answerText}
               handleQuestionText={handleAnswerText}
             ></TextEditor>
             <div className="mt-4">

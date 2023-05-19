@@ -24,8 +24,8 @@ const stripHtml = (html) => {
   return tempElement.textContent || tempElement.innerText || "";
 };
 
-const TextEditor = ({questionText, handleQuestionText}) => {
-  const [value, setValue] = useState(questionText);
+const TextEditor = ({txt, handleQuestionText}) => {
+  const [value, setValue] = useState(txt);
   const handleChange = (text) => {
     setValue(text);
     const plainText = stripHtml(text); // Strip HTML tags
