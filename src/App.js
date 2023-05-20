@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AnswersPage from "./components/AnswersPage/AnswersPage";
 import EditPage from "./components/EditQA/EditQuestions";
 import UserProfile from "./components/UserProfile/UserProfile";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 // import Questions from "./components/Questions/Questions";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           <Route path="/register" element={<Signup />} />
 
           <Route path="/login" element={<Login />} />
+
+          <Route path="/reset-password" element={<ForgotPassword />} />
+
 
           <Route path="/addquestion" element={<AddQuestion />} />
 
