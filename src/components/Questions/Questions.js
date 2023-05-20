@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import QuestionItem from "../QuestionItem/QuestionItem";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { updateList ,updateCurrentPage } from "../../redux/questionsSlice";
 
 const Questions = () => {
   // const [currentPage, setCurrentPage] = useState(0);
-  const [questions, setQuestions] = useState([]);
+  // const [questions, setQuestions] = useState([]);
   const token=localStorage.getItem("token");
   const questionList = useSelector((state)=>state.questions.list);
   const currentPage = useSelector((state)=>state.questions.currentPage);
@@ -33,7 +33,7 @@ const Questions = () => {
       }
     };
     fetchData();
-  }, [currentPage,token]);
+  }, [currentPage,token,dispatch]);
   
 
   const handlePrevPage =  () => {
@@ -49,7 +49,7 @@ const Questions = () => {
         'Authorization':`Bearer ${token}`
       }} );
       console.log(res.data);
-      setQuestions(res.data);
+      // setQuestions(res.data);
       // setCurrentPage(currentPage + 1);
     } catch (error) {
       console.log(error);

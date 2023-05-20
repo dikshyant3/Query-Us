@@ -11,13 +11,10 @@ import AnswersPage from "./components/AnswersPage/AnswersPage";
 import EditPage from "./components/EditQA/EditQuestions";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-<<<<<<< HEAD
 import ResetPassword from "./components/ForgotPassword/ResetPassword";
 import ResendToken from "./components/ResendToken/ResendToken";
-=======
 import { Provider } from "react-redux";
 import store from './redux/store';
->>>>>>> 3db6ebe (added redux provider to Home page)
 // import Questions from "./components/Questions/Questions";
 
 function App() {

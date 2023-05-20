@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import image from "../../images/Logo2.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useNavigate , Link} from "react-router-dom";
 import LockIcon from "@mui/icons-material/Lock";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { FaEyeSlash } from "react-icons/fa";
