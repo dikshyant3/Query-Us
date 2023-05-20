@@ -138,7 +138,7 @@ const Login = () => {
                 <p className="mt-10 text-center text-sm text-gray-500">
                   Don't have an account?
                   <Link
-                    href="/register"
+                    to="/register"
                     className="pl-1 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                   >
                     Sign up
@@ -152,12 +152,12 @@ const Login = () => {
             <div className="w-2/5 bg-indigo-600 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
               <h2 className="text-3xl font-bold mb-2 py-0">Welcome</h2>
               <p className="mb-10">If you don't have an account</p>
-              <a
-                href="/register"
+              <Link
+                to="/register"
                 className="border-2 border-white bg-white text-indigo-600 rounded-full inline-block px-12 py-2 font-semibold hover:bg-white hover:text-indigo-500"
               >
                 Sign up
-              </a>
+              </Link>
             </div>
           </div>
         </div>

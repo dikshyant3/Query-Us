@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./Signup.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image from "../../images/Logo2.png";
 import { toast } from "react-toastify";
 
@@ -173,12 +173,12 @@ const Signup = () => {
                   </button>
                   <p className="mb-0 mt-2 pt-1 text-base font-semibold">
                     Already have an account?
-                    <a
-                      href="/login"
+                    <Link
+                      to="/login"
                       className="text-danger text-indigo-600 pl-1 transition duration-150 ease-in-out hover:text-indigo-600 focus:text-danger-600 active:text-danger-700"
                     >
                       Login
-                    </a>
+                    </Link>
                   </p>
                 </form>
               </div>
@@ -186,12 +186,12 @@ const Signup = () => {
             <div className="w-2/5 bg-indigo-600 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
               <h2 className="text-3xl font-bold mb-2 py-0">Welcome</h2>
               <p className="mb-10">Fill up the form and start your journey.</p>
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="border-2 border-white text-white rounded-full inline-block px-12 py-2 font-semibold hover:bg-white hover:text-indigo-600"
               >
                 Sign in
-              </a>
+              </Link>
             </div>
           </div>
         </div>
