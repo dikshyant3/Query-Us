@@ -13,8 +13,6 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ForgotPassword/ResetPassword";
 import ResendToken from "./components/ResendToken/ResendToken";
-import { Provider } from "react-redux";
-import store from './redux/store';
 // import Questions from "./components/Questions/Questions";
 
 function App() {
@@ -25,7 +23,7 @@ function App() {
         <Routes>
           {/* <Route path='/' element={ <Navbar/>}/>  */}
 
-          <Route path="/" element={<Provider store={store}><Home /></Provider>} />
+          <Route path="/" element={<Home />} />
 
           <Route path="/register" element={<Signup />} />
 
