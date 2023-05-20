@@ -18,11 +18,11 @@ const AnswersPage = () => {
   const [answerText, setAnswerText] = useState("");
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
   // The below three lines of used to redirect a single question to answersPage
   let search = window.location.search;
   const params = new URLSearchParams(search);
   const id = params.get("query");
+  const editId= params.get("edit")
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const navigate = useNavigate();
@@ -42,6 +42,14 @@ const AnswersPage = () => {
         });
         console.log(res.data);
         setQuestion(res.data);
+        if(editId>0){
+          const ans = res.data.answers
+          const answer = ans.find(obj=>obj.id==editId).answer
+          setAnswerText(answer)
+          // console.log("Edit Mode...",res.data.answers.filter(x=>x.id===editId))
+          // setEditingAnswer(res.data.answers.find(x=>x.id===editId).answer);
+        }
+        
       } catch (error) {
         console.log(error);
       }
@@ -74,7 +82,18 @@ const AnswersPage = () => {
       toast.error("Error While Posting the answer.");
     }
   };
-
+  const handleUpdateSubmit=async()=>{
+    const updateUrl = `https://queryus-production.up.railway.app/answer/update/${editId}`
+    try{
+      const res = await axios.put(updateUrl,null,{
+        params:{answer:answerText},
+        headers:{Authorization: `Bearer ${token}`}
+      })
+    }catch(error){
+      console.log(error)
+    }
+    window.location=`http://localhost:3000/answersPage?query=${id}`
+  }
   const sortedAnswers = question.answers
     .slice()
     .sort((a, b) => b.voteCount - a.voteCount);
@@ -135,7 +154,11 @@ const AnswersPage = () => {
   const handleEdit = () => {
     navigate(`/edit?query=${id}`);
   };
-  const handleAnswerEdit = () => {};
+  const handleAnswerEdit = (aid) => {
+    console.log(id)
+    window.location=`http://localhost:3000/answersPage?query=${id}&edit=${aid}`
+
+  };
   const handleAnswerDelete = async (ansId) => {
     const url = `https://queryus-production.up.railway.app/answer/delete/${ansId}`;
     try {
@@ -301,7 +324,7 @@ const AnswersPage = () => {
                           <button
                             type="button"
                             className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
-                            onClick={handleAnswerEdit}
+                            onClick={()=>handleAnswerEdit(answer.id)}
                           >
                             Edit
                           </button>
@@ -328,12 +351,18 @@ const AnswersPage = () => {
               handleQuestionText={handleAnswerText}
             ></TextEditor>
             <div className="mt-4">
-              <button
+              {editId>0?<button
+                onClick={handleUpdateSubmit}
+                className="px-[10px] py-[8px] float-right bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
+              >
+                Update Answer
+              </button>:<button
                 onClick={handleSubmit}
                 className="px-[10px] py-[8px] float-right bg-indigo-600 text-white border-none rounded cursor-pointer hover:bg-indigo-400"
               >
                 Post Answer
-              </button>
+              </button>}
+              
             </div>
           </div>
         </div>
