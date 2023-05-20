@@ -234,7 +234,7 @@ const AnswersPage = () => {
                               onKeyDown={handleKeyPressed}
                               className="outline-none rounded border-black opacity-40 ring-0 h-[20px] focus:border-indigo-500"
                             />
-                            <button type="submit"></button>
+                            {/* <button type="submit"></button> */}
                           </form>
                         )}
                         <button
