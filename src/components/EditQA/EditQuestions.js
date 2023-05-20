@@ -104,7 +104,7 @@ const EditQuestions = () => {
               </small>
 
               <TextEditor
-                questionText={questionText}
+                txt={questionText}
                 handleQuestionText={handleQuestionText}
               />
             </div>
