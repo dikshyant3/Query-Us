@@ -99,12 +99,12 @@ const Login = () => {
                         </Link>
                       </div>
                     </div>
-                    <div className="flex space-x-2 mt-2 mb-2 items-center text-left justify-center">
+                    <div className="flex space-x-2 mt-2 mb-2 items-center text-left">
                       <LockIcon className="text-gray-700 w-6 h-6" />
 
                       <input
                         type={showPassword ? "text" : "password"}
-                        className="my-auto pb-4 outline-none border-0 ring-0 focus:ring-0"
+                        className="my-auto border-0 outline-none ring-0 focus:ring-0"
                         name="password"
                         id="password"
                         placeholder="Password"
