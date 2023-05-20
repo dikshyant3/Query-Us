@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import image from "../../images/Logo2.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LockIcon from "@mui/icons-material/Lock";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { FaEyeSlash } from "react-icons/fa";
@@ -91,12 +91,12 @@ const Login = () => {
                     <div className="flex items-center justify-between">
                       <label htmlFor="password">Password</label>
                       <div class="text-sm">
-                        <a
-                          href="/reset-password"
+                        <Link
+                          to="/forget-password"
                           class="font-semibold text-indigo-600 hover:text-indigo-500"
                         >
                           Forgot password?
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="flex space-x-2 mt-2 mb-2 items-center text-left justify-center">
@@ -137,12 +137,15 @@ const Login = () => {
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
                   Don't have an account?
-                  <a
+                  <Link
                     href="/register"
                     className="pl-1 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                   >
                     Sign up
-                  </a>
+                  </Link>
+                </p>
+                <p className="mt-10 text-center font-semibold text-sm text-indigo-500">
+                          <Link to='/resendToken'>Resend Token</Link>
                 </p>
               </div>
             </div>

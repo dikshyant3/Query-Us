@@ -94,7 +94,7 @@ const AddQuestion = () => {
               onChange={setTags}
               name="tag"
               placeHolder="Press Enter to add new tags"
-            />
+              min={3} required/>
           </div>
 
           <div className="px-4">

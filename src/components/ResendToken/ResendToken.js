@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { BiArrowBack } from "react-icons/bi";
 import { toast } from "react-toastify";
-import forgotPasswordImage from "../../images/forgot_password.png";
+// import forgotPasswordImage from "../../images/forgot_password.png";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
 
-  const url = "https://queryus-production.up.railway.app/reset-password/token";
+  const url = "https://queryus-production.up.railway.app/token/resend";
 
 
   const handleChange = (e) => {
@@ -52,11 +52,10 @@ const ForgotPassword = () => {
               </div>
               <div className="py-16 w-full">
                 <p className="text-3xl font-bold text-indigo-600">
-                  Forgot Password?
+                  Resend Token
                 </p>
                 <p className="py-4 text-sm text-gray-400 whitespace-normal">
-                  Enter your email and we'll send you a link to reset your
-                  password.
+                  Enter your email and we'll send you a token. 
                 </p>
               </div>
               <div className="flex flex-col justify-center items-center">
@@ -95,11 +94,11 @@ const ForgotPassword = () => {
               </div>
             </div>
             <div className="w-2/5 bg-indigo-600 text-white rounded-tr-2xl rounded-br-2xl py-52 px-12">
-              <img
+              {/* <img
                 src={forgotPasswordImage}
                 alt="forgotPassword"
                 className="w-[200px] h-full"
-              />
+              /> */}
             </div>
           </div>
         </div>

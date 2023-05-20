@@ -11,6 +11,8 @@ import AnswersPage from "./components/AnswersPage/AnswersPage";
 import EditPage from "./components/EditQA/EditQuestions";
 import UserProfile from "./components/UserProfile/UserProfile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import ResetPassword from "./components/ForgotPassword/ResetPassword";
+import ResendToken from "./components/ResendToken/ResendToken";
 // import Questions from "./components/Questions/Questions";
 
 function App() {
@@ -27,8 +29,11 @@ function App() {
 
           <Route path="/login" element={<Login />} />
 
-          <Route path="/reset-password" element={<ForgotPassword />} />
+          <Route path="/forget-password" element={<ForgotPassword />} />
 
+          <Route path="/reset-password" element={<ResetPassword />} />
+
+          <Route path="/resendToken" element={<ResendToken />} />
 
           <Route path="/addquestion" element={<AddQuestion />} />
 
