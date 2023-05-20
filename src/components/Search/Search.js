@@ -43,7 +43,7 @@ const Search = () => {
             type="text"
             onKeyDown={handleKeyPressed}
             placeholder="Search"
-            className="w-full h-[40px] outline-none border-2 ring-0 focus:border-0 focus:ring-0 bg-[#f5f5f5]" onChange={handleChange} value={searchString}
+            className="w-full h-[40px] outline-none border-0 ring-0 focus:border-0 focus:ring-0 bg-[#f5f5f5]" onChange={handleChange} value={searchString}
           />
           </form>
         </div>
