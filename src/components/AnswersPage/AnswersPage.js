@@ -23,9 +23,9 @@ const AnswersPage = () => {
   let search = window.location.search;
   const params = new URLSearchParams(search);
   const id = params.get("query");
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   // console.log("DIKSHYANT")
   const url = `https://queryus-production.up.railway.app/question/${id}`;
@@ -40,7 +40,7 @@ const AnswersPage = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(res.data)
+        console.log(res.data);
         setQuestion(res.data);
       } catch (error) {
         console.log(error);
@@ -117,44 +117,40 @@ const AnswersPage = () => {
     }
     console.log(event.key);
   };
-  const handleDelete=async()=>{
-    const url = `https://queryus-production.up.railway.app/question/delete/${id}` 
-    try{
-      const res = await axios.delete(url,{
-        headers:{
+  const handleDelete = async () => {
+    const url = `https://queryus-production.up.railway.app/question/delete/${id}`;
+    try {
+      const res = await axios.delete(url, {
+        headers: {
           Authorization: `Bearer ${token}`,
-        }
-      })
-      console.log(res.data)
-      navigate("/")
-    }catch(error){
-      console.log(error)
+        },
+      });
+      console.log(res.data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const handleEdit=()=>{
-    navigate(`/edit?query=${id}`)
-
+  const handleEdit = () => {
+    navigate(`/edit?query=${id}`);
   };
-  const handleAnswerEdit=()=>{
-
-  };
-  const handleAnswerDelete=async(ansId)=>{
-    const url = `https://queryus-production.up.railway.app/answer/delete/${ansId}` 
-    try{
-      const res = await axios.delete(url,{
-        headers:{
+  const handleAnswerEdit = () => {};
+  const handleAnswerDelete = async (ansId) => {
+    const url = `https://queryus-production.up.railway.app/answer/delete/${ansId}`;
+    try {
+      const res = await axios.delete(url, {
+        headers: {
           Authorization: `Bearer ${token}`,
-        }
-      })
-      console.log(res.data)
+        },
+      });
+      console.log(res.data);
       // what to do after deleting an answer
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
-
   };
-  console.log(currentUser.id+"    "+question.userId)
+  console.log(currentUser.id + "    " + question.userId);
   return (
     <>
       <Navbar />
@@ -187,8 +183,8 @@ const AnswersPage = () => {
               </div>
             </div>
             {/* Question Text Or Body */}
-            <div className="flex flex-col w-full items-center gap-8 border-b-2 border-gray-200">
-              <div className="flex gap-8 w-full justify-start items-center">
+            <div className="flex flex-col w-full items-center gap-8 mb-2 border-b-2 border-gray-200">
+              <div className="flex gap-8 w-full justify-start items-start">
                 <div className="flex flex-col mt-3">
                   <QuestionUpvote
                     count={question.voteCount}
@@ -197,8 +193,8 @@ const AnswersPage = () => {
                   />
                 </div>
                 <div className="flex flex-col w-full">
-                  <p className="text-gray-800 mt-2">{question.questionText}</p>
-                  <div className="flex items-end justify-between">
+                  <p className="text-gray-800 mt-2 pb-4">{question.questionText}</p>
+                  <div className="flex items-end justify-between mb-4">
                     <div className="flex items-center">
                       {question.tags.map((tag) => (
                         <div className="mr-3 text-indigo-600">{tag}</div>
@@ -208,25 +204,25 @@ const AnswersPage = () => {
                       <Utils id={question.userId} />
                     </div>
                   </div>
-                  <div className="flex gap-4 items-center">
-                  {question.userId===currentUser.id && (
-                    <div className="flex gap-4 items-center">
-                      <button
-                        type="button"
-                        className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
-                        onClick={handleEdit}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
-                        onClick={handleDelete}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex gap-4 mb-4 items-center">
+                    {question.userId === currentUser.id && (
+                      <div className="flex gap-4 items-center">
+                        <button
+                          type="button"
+                          className="text-sm font-light text-indigo-600 hover:text-indigo-400"
+                          onClick={handleEdit}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
+                          onClick={handleDelete}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
                     {question.originalQuestionId === 0 ? (
                       <div className="flex">
                         {showInput && (
@@ -269,9 +265,9 @@ const AnswersPage = () => {
             {sortedAnswers.map((answer) => (
               <div
                 key={answer.id}
-                className="flex items-center border-b-2 border-gray-200 gap-8"
+                className="flex items-start border-b-2 border-gray-200 gap-8"
               >
-                <div className="flex flex-col ">
+                <div className="flex flex-col pt-6">
                   <AnswerUpvote
                     count={answer.voteCount}
                     id={answer.id}
@@ -300,25 +296,25 @@ const AnswersPage = () => {
                       </div>
                     </div>
                     <div className="flex gap-4 items-center">
-                  {answer.userId===currentUser.id && (
-                    <div className="flex gap-4 items-center">
-                      <button
-                        type="button"
-                        className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
-                        onClick={handleAnswerEdit}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
-                        onClick={()=>handleAnswerDelete(answer.id)}
-                      >
-                        Delete
-                      </button>
+                      {answer.userId === currentUser.id && (
+                        <div className="flex gap-4 items-center">
+                          <button
+                            type="button"
+                            className="pl-4 text-sm font-light text-indigo-600 hover:text-indigo-400"
+                            onClick={handleAnswerEdit}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            type="button"
+                            className="pl-4 text-sm font-light text-red-600 hover:text-red-400"
+                            onClick={() => handleAnswerDelete(answer.id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  )}
-                  </div>
                   </div>
                 </div>
               </div>
