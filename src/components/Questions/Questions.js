@@ -8,15 +8,25 @@ import { updateList ,updateCurrentPage } from "../../redux/questionsSlice";
 const Questions = () => {
   // const [currentPage, setCurrentPage] = useState(0);
   // const [questions, setQuestions] = useState([]);
+  let s = window.location.search;
+  const params = new URLSearchParams(s);
+  const search = params.get("search");
   const token=localStorage.getItem("token");
   const questionList = useSelector((state)=>state.questions.list);
   const currentPage = useSelector((state)=>state.questions.currentPage);
   const dispatch = useDispatch();
   
+  
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://queryus-production.up.railway.app/question/all?pageNo=${currentPage}`;
+      let url = ''
+      if(search){
+        console.log("search mode")
+         url = `https://queryus-production.up.railway.app/question/search?query=${search}`
+      }else{
+         url = `https://queryus-production.up.railway.app/question/all?pageNo=${currentPage}`;
+      }
       try {
         const res = await axios.get(url,{
           headers:{

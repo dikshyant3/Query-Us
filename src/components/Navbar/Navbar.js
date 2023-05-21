@@ -19,7 +19,6 @@ const Navbar = () => {
   const toggleDropDown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
   const handleLogout = () => {
     localStorage.clear();
     navigate('/login');

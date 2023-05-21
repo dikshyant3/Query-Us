@@ -77,10 +77,12 @@ const AnswersPage = () => {
       console.log(res.data);
       toast.success("Answer added successfully!!!");
       setAnswerText("");
+      window.location=`http://localhost:3000/answersPage?query=${id}`
     } catch (error) {
       console.log(error);
       toast.error("Error While Posting the answer.");
     }
+    
   };
   const handleUpdateSubmit=async()=>{
     const updateUrl = `https://queryus-production.up.railway.app/answer/update/${editId}`
@@ -89,10 +91,11 @@ const AnswersPage = () => {
         params:{answer:answerText},
         headers:{Authorization: `Bearer ${token}`}
       })
+      navigate(0)
     }catch(error){
       console.log(error)
     }
-    window.location=`http://localhost:3000/answersPage?query=${id}`
+    
   }
   const sortedAnswers = question.answers
     .slice()
@@ -169,6 +172,8 @@ const AnswersPage = () => {
       });
       console.log(res.data);
       // what to do after deleting an answer
+      // window.location=`http://localhost:3000/answersPage?query=${id}`
+      navigate(0)
     } catch (error) {
       console.log(error);
     }
