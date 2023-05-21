@@ -89,10 +89,34 @@ const UserProfile = () => {
               </p>
             </div>
           </div>
-          <div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
+          {user.reputation>500?(<div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
             <div className="flex gap-2 pt-4 mx-auto items-start">
-              <GiStarMedal className={`text-5xl text-${medalColor}`} />
-              <p className="text-3xl mr-6 text-profileColor font-semibold">{medalText}</p>
+              <GiStarMedal className={`text-5xl text-medalGold`} />
+              <p className="text-3xl mr-6 text-medalGold font-semibold">{medalText}</p>
+            </div>
+            
+              {/* Reputation */}
+              <p className="font-bold mx-auto text-8xl pt-2 text-white">{user.reputation}</p>
+              <p className="text-2xl text-profileColor font-medium mx-auto">
+                Reputation
+              </p>
+            </div>):<></>}
+            {(user.reputation>100 && user.reputation<=500)?(<div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
+            <div className="flex gap-2 pt-4 mx-auto items-start">
+              <GiStarMedal className={`text-5xl text-medalSilver`} />
+              <p className="text-3xl mr-6 text-medalSilver font-semibold">{medalText}</p>
+            </div>
+            
+              {/* Reputation */}
+              <p className="font-bold mx-auto text-8xl pt-2 text-white">{user.reputation}</p>
+              <p className="text-2xl text-profileColor font-medium mx-auto">
+                Reputation
+              </p>
+            </div>):<></>}
+            {user.reputation<=100?(<div className="ml-8 flex flex-col bg-indigo-700 rounded-xl w-[250px] h-[237px] pt-4">
+            <div className="flex gap-2 pt-4 mx-auto items-start">
+              <GiStarMedal className={`text-5xl text-medalBronze`} />
+              <p className="text-3xl mr-6 text-medalBronze font-semibold">{medalText}</p>
             </div>
             
               {/* Reputation */}
@@ -100,10 +124,12 @@ const UserProfile = () => {
               <p className="text-2xl text-profileColor font-medium mx-auto">
                 Reputation
               </p>
-            
-            
-          </div>
-        </div>
+            </div>):<></>}
+
+          
+  
+  
+  </div>
         <div className="flex flex-col w-3/5 gap-4">
           <div className="flex gap-4 border-b-2 border-gray-600">
             <div className="flex flex-col bg-searchBar rounded-xl w-1/2 mb-4">
