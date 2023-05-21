@@ -15,7 +15,7 @@ const Search = () => {
       console.log(event.target.value);
   }
   const handleInputSubmit = async(e) => {
-    const url = `http://queryus-production.up.railway.app/question/search`
+    const url = `https://queryus-production.up.railway.app/question/search`
     e.preventDefault();
     console.log("Submitted")
 
