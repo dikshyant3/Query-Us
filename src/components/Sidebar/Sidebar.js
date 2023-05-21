@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import {FaUserCircle} from 'react-icons/fa'
 import {AiFillHome} from 'react-icons/ai'
 import axios from 'axios'
+import { useDispatch } from "react-redux";
+import { updateList } from "../../redux/questionsSlice";
 
 
 
 const Sidebar = () => {
   const [tags,setTags]=useState([]);
   const token=localStorage.getItem('token');
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +34,21 @@ const Sidebar = () => {
 
     fetchData();
   }, [token])
+
+  const handleTagClick=async(tag)=>{
+    const url = `https://queryus-production.up.railway.app/question/search`
+    try{
+      const res = await axios.get(url,{
+        params:{query:tag},
+      headers:{'Authorization':`Bearer ${token}`}
+    })
+    console.log(res.data);
+    dispatch(updateList(res.data));
+    }catch(error){
+      console.log(error);
+    }
+
+  }
   return (
     <div className="flex flex-col items-center sticky top-0 w-[350px] bg-[#f5f5f5] border-r-2 border-gray-300">
       <div className=" mt-6 mb-4 ">
@@ -55,7 +74,7 @@ const Sidebar = () => {
         <h3 className="text-xl font-semibold text-indigo-600">Popular Tags</h3>
         <div className="">
           {tags.map(tag=>(
-            <div className="flex flex-col text-indigo-700 text-center pt-4">{tag}</div>
+            <button className="flex flex-col text-indigo-700 text-center pt-4 cursor-pointer" onClick={()=>handleTagClick(tag)}>{tag}</button>
           ))}
         </div>
       </div>
