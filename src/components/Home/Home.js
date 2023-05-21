@@ -3,7 +3,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import Questions from "../Questions/Questions";
 import Navbar from "../Navbar/Navbar";
 
-
 const Home = () => {
   return (
     <>
