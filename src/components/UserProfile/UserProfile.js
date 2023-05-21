@@ -81,7 +81,7 @@ const UserProfile = () => {
             <div className="flex flex-col items-center pt-4">
               {/* Role */}
               <p className="font-medium text-lg text-white">{user.role}</p>
-              <p className="text-2xl text-profileColor font-semibold">
+              <p className="text-2xl text-profileColor text-center font-semibold">
                 {user.firstName} {user.middleName} {user.lastName}
               </p>
               <p className="text-lg font-medium text-white">
