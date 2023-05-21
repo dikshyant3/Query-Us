@@ -1,20 +1,27 @@
 import axios from 'axios';
 import React ,{useState} from 'react'
 import { GrSearch } from 'react-icons/gr'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateList } from '../../redux/questionsSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 const Search = () => {
-  const [searchString,setSearchString] = useState("");
   const dispatch = useDispatch()
   const token = localStorage.getItem('token');
+  let s = window.location.search;
+  const params = new URLSearchParams(s);
+  const search = params.get("search");
+  const navigate = useNavigate();
+  const [searchString,setSearchString] = useState(search?search:"");
 
   const handleChange = (event)=>{
-      setSearchString(event.target.value);
-      console.log(event.target.value);
+
+    setSearchString(event.target.value)
+    console.log(event.target.value);
   }
   const handleInputSubmit = async(e) => {
+    navigate(`/?search=${searchString}`)
     const url = `https://queryus-production.up.railway.app/question/search`
     e.preventDefault();
     console.log("Submitted")

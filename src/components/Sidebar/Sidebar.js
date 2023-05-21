@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {FaUserCircle} from 'react-icons/fa'
 import {AiFillHome} from 'react-icons/ai'
 import axios from 'axios'
@@ -7,11 +7,11 @@ import { useDispatch } from "react-redux";
 import { updateList } from "../../redux/questionsSlice";
 
 
-
 const Sidebar = () => {
   const [tags,setTags]=useState([]);
   const token=localStorage.getItem('token');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -36,6 +36,7 @@ const Sidebar = () => {
   }, [token])
 
   const handleTagClick=async(tag)=>{
+    navigate(`/?search=${tag}`);
     const url = `https://queryus-production.up.railway.app/question/search`
     try{
       const res = await axios.get(url,{
